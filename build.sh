@@ -30,6 +30,7 @@ RESET='\033[0m'
 declare -r TOP=`dirname $(realpath $0)`
 declare -r HALIF_VERSION=current
 RDK_HALIF_AIDL_VERSION="${RDK_HALIF_AIDL_VERSION="main"}"
+ENABLE_AV_L4_TEST="${ENABLE_AV_L4_TEST:-1}"
 RDK_HALIF_TEST_BASE_URL="https://github.com/rdkcentral/rdk-halif-aidl-test-"
 OUT_TAR_FILE=vts_unified.tar.gz.bz
 
