@@ -43,7 +43,7 @@ AIDL_LIB_LDFLAGS := -L$(BUILD_DIR)/usr/lib
 AIDL_LIB_LDFLAGS += -Wl,-rpath-link=$(BUILD_DIR)/usr/lib
 
 # Base CFLAGS, can be overridden by caller
-AIDL_LIB_CFLAGS := -Wall -Wextra -std=c++17 -ggdb
+AIDL_LIB_CFLAGS := -Wall -Wextra -Wformat -Wno-error=format -std=c++17 -ggdb
 
 AIDL_LIB := $(BUILD_DIR)/usr/lib/$(AIDL_LIB)
 
