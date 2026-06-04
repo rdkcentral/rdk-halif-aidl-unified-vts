@@ -2,7 +2,6 @@
 
 This document outlines the steps to build and run the Unified Vendor Testing Suite (VTS) for AIDL HAL, targeting Linux or ARM platforms. The test suite depends on the Linux Binder with AIDL support and requires specific setup, build, and execution steps.
 
-test 
 ## Table of Contents
 
 - [Unified Vendor Testing Suite For AIDL HAL](#unified-vendor-testing-suite-for-aidl-hal)

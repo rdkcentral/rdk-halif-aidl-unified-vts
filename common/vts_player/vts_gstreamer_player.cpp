@@ -79,8 +79,6 @@
 #include "vts_gstreamer_player.h"
 #include <ut.h>
 #include <ut_log.h>
-#include <stdio.h>
-
 
 // Wrappers for GStreamer global init/deinit
 void gstGlobalInitWrapper()
@@ -128,7 +126,6 @@ bool VTSGStreamerPlayer::play(const std::string &streamPath)
         UT_LOG_ERROR("[GStreamer] Failed to set PLAYING");
         return false;
     }
-    print("Test coverity flow %s \n");
     return true;
 }
 
