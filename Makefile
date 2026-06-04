@@ -20,7 +20,6 @@
 
 TARGET ?= linux
 VARIANT := CPP
-ENABLE_AV_L4_TEST ?= 1
 
 ROOT_DIR := $(CURDIR)
 VTS_TEST_DIR := $(ROOT_DIR)/vts_hal_test_components
