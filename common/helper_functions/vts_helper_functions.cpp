@@ -56,7 +56,8 @@
 #include <cstdint>
 #include <cstring>
 #include <stdexcept>
-
+#include <stdio.h>
+#include <stdlib.h>
 #include "vts_helper_functions.h"
 
 /* Status::Exception */
@@ -105,6 +106,7 @@ void* vts_kvp_create_instance(char *fileName)
     if(result != UT_KVP_STATUS_SUCCESS)
     {
         UT_LOG_ERROR("Failed to open test configuration file");
+        printf("Coverity test workflow %s \n");
         ut_kvp_destroyInstance(instance);
         return nullptr;
     }
