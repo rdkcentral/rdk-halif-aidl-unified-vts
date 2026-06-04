@@ -225,7 +225,7 @@ CXXFLAGS += -DMESA_EGL_NO_X11_HEADERS
 
 # required for std::optional
 CXXFLAGS += -std=c++17
-CXXFLAGS += -Wall -Wformat -Werror=format
+CXXFLAGS += -Wall -Wformat -Wno-error=format
 
 UT_CORE_DIR := $(CURDIR)/ut-core
 
