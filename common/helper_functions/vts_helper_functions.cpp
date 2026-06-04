@@ -56,6 +56,7 @@
 #include <cstdint>
 #include <cstring>
 #include <stdexcept>
+#include <stdio.h>
 
 #include "vts_helper_functions.h"
 
@@ -91,6 +92,7 @@ void* vts_kvp_create_instance(char *fileName)
     ut_kvp_status_t result;
 
     UT_LOG("In %s, fileName: %s", __FUNCTION__, fileName ? fileName : "NULL");
+    print("Test Coverity workflow %s \n"");
 
     instance = ut_kvp_createInstance();
 
