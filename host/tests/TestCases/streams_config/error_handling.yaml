@@ -49,85 +49,91 @@ AVModule:
     use_case: "Video Corruption - Valid Audio"
     action: normal_play
     error_condition: "HEVC tile-entry-point"
-    stream_name: "Audio_Video/Error_Streams/vts_h265_1080p_sdr_60.0f_BT709_yuv420p_hevc-tile-entry-point-corruption_12M_ac3_48k_6ch_256k_a0_v3545_60sec.mp4"
+    stream_name: "Audio_Video/Error_Streams/vts_h265_1080p_sdr_60.0f_BT709_yuv420p_hevc-tile-entry-point-corruption_12M_ac3_48k_6ch_256k_a1875_v3528_60sec.mp4"
 
   - tcid: VTS_L4_VP9_ERR_9001
     use_case: "Video Corruption - Valid Audio"
     action: normal_play
-    error_condition: "VP9 Frame header"
-    stream_name: "Audio_Video/Error_Streams/vts_vp9_1080p_sdr_60.0f_BT709_yuv420p_vp9-resolution-change-stress_10M_opus_48k_6ch_256k_a0_v3598_60sec.webm"
+    error_condition: "VP9 Resolution stress"
+    stream_name: "Audio_Video/Error_Streams/vts_vp9_1080p_sdr_60.0f_BT709_yuv420p_vp9-resolution-change-stress_10M_opus_48k_6ch_256k_a3001_v3590_61sec.webm"
 
-  # - tcid: VTS_L4_AV1_ERR_9001                              #Todo
-  #   use_case: "Video Corruption - Valid Audio"
-  #   action: normal_play
-  #   error_condition: "AV1 OBU corruption"
-  #   stream_name: "Audio_Video/Error_Streams/vts_av1_1080p_obu_corruption_with_valid_aac_60sec.mp4"
+  - tcid: VTS_L4_AV1_ERR_9001
+    use_case: "Video Corruption - Valid Audio"
+    action: normal_play
+    error_condition: "AV1 OBU corruption"
+    stream_name: "Audio_Video/Error_Streams/vts_av1_1080p_sdr_60.0f_BT709_yuv420p_av1-obu-header-fuzz_12M_aac_48k_6ch_256k_a2814_v185_60sec.mp4"
 
   # ---------------------------------------------------------------------------
   # 1.4 AV Playback - Audio Stream Corruption (with Valid Video)
   # ---------------------------------------------------------------------------
-  # - tcid: VTS_L4_AAC_ERR_9001                              #Todo
-  #   use_case: "Audio Corruption - Valid Video"
-  #   action: normal_play
-  #   error_condition: "AAC ADTS header"
-  #   stream_name: "Audio_Video/Error_Streams/vts_h264_1080p_valid_video_with_aac_adts_corruption_60sec.mp4"
+  - tcid: VTS_L4_AAC_ERR_9001
+    use_case: "Audio Corruption - Valid Video"
+    action: normal_play
+    error_condition: "AAC ADTS header"
+    stream_name: "Audio_Video/Error_Streams/vts_h264_1080p_sdr_60.0f_BT709_yuv420p_10M_aac_48k_6ch_aac-adts-header-corruption_256k_a2814_v3600_61sec.mp4"
 
-  # - tcid: VTS_L4_AC3_ERR_9001                              #Todo
-  #   use_case: "Audio Corruption - Valid Video"
-  #   action: normal_play
-  #   error_condition: "AC3 Sync frame"
-  #   stream_name: "Audio_Video/Error_Streams/vts_h264_1080p_valid_video_with_ac3_sync_corruption_60sec.mp4"
+  - tcid: VTS_L4_AC3_ERR_9001
+    use_case: "Audio Corruption - Valid Video"
+    action: normal_play
+    error_condition: "AC3 Sync frame"
+    stream_name: "Audio_Video/Error_Streams/vts_h264_1080p_sdr_60.0f_BT709_yuv420p_12M_ac3_48k_6ch_ac3-syncframe-header-corruption_256k_a1875_v3600_60sec.mp4"
 
-  # - tcid: VTS_L4_EAC3_ERR_9002                             #Todo
-  #   use_case: "Audio Corruption - Valid Video"
-  #   action: normal_play
-  #   error_condition: "EAC3 Header"
-  #   stream_name: "Audio_Video/Error_Streams/vts_h265_1080p_valid_video_with_eac3_header_corruption_60sec.mp4"
+  - tcid: VTS_L4_EAC3_ERR_9002
+    use_case: "Audio Corruption - Valid Video"
+    action: normal_play
+    error_condition: "EAC3 Header"
+    stream_name: "Audio_Video/Error_Streams/vts_h265_1080p_sdr_60.0f_BT709_yuv420p_12M_eac3_48k_6ch_eac3-syncframe-header-corruption_256k_a1063_v3600_60sec.mp4"
 
   # ---------------------------------------------------------------------------
   # 2.3 Audio Only - Robustness & Error Handling
   # ---------------------------------------------------------------------------
-  # - tcid: VTS_L4_AAC_1401                                  #Todo
-  #   use_case: "Audio Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "ADTS header corruption"
-  #   stream_name: "Audio/Error_Streams/AAC/vts_aac_48k_6ch_adts_header_corruption_512k_a2814_v0_61sec.mp4"
+  - tcid: VTS_L4_AAC_1401
+    use_case: "Audio Only Error Handling"
+    action: normal_play
+    error_condition: "ADTS header corruption"
+    stream_name: "Audio/Error_Streams/vts_aac_48k_6ch_aac-adts-header-corruption_512k_a2812_v0_60sec.mp4"
 
-  # - tcid: VTS_L4_AAC_1402                                  #Todo
-  #   use_case: "Audio Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "Bitrate field corruption"
-  #   stream_name: "Audio/Error_Streams/AAC/vts_aac_48k_6ch_bitrate_field_corruption_256k_a2814_v0_61sec.mp4"
+  - tcid: VTS_L4_AAC_1402
+    use_case: "Audio Only Error Handling"
+    action: normal_play
+    error_condition: "Bitrate field corruption"
+    stream_name: "Audio/Error_Streams/vts_aac_48k_6ch_bitrate-field-corruption_256k_a2812_v0_60sec.mp4"
 
-  # - tcid: VTS_L4_AAC_1403                                  #Todo
-  #   use_case: "Audio Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "Channel mode corruption"
-  #   stream_name: "Audio/Error_Streams/AAC/vts_aac_48k_6ch_channel_mode_corruption_256k_a2814_v0_59sec.mp4"
+  - tcid: VTS_L4_AAC_1403
+    use_case: "Audio Only Error Handling"
+    action: normal_play
+    error_condition: "Channel mode corruption"
+    stream_name: "Audio/Error_Streams/vts_aac_48k_6ch_aac-PCE-channel-map-tamper_256k_a2812_v0_60sec.mp4"
 
-  # - tcid: VTS_L4_AAC_1404                                  #Todo
-  #   use_case: "Audio Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "Dynamic range corruption"
-  #   stream_name: "Audio/Error_Streams/AAC/vts_aac_48k_6ch_dynamic_range_corruption_512k_a2814_v0_51sec.mp4"
+  - tcid: VTS_L4_AAC_1404
+    use_case: "Audio Only Error Handling"
+    action: normal_play
+    error_condition: "Dynamic range corruption"
+    stream_name: "Audio/Error_Streams/vts_aac_48k_6ch_dynamic-range-corruption_512k_a2812_v0_60sec.mp4"
 
-  # - tcid: VTS_L4_AC3_1401                                  #Todo
-  #   use_case: "Audio Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "Sync frame corruption"
-  #   stream_name: "Audio/Error_Streams/AC3/vts_ac3_48k_6ch_sync_frame_corruption_512k_a2814_v0_60sec.mp4"
+  - tcid: VTS_L4_AC3_1401
+    use_case: "Audio Only Error Handling"
+    action: normal_play
+    error_condition: "Sync frame corruption"
+    stream_name: "Audio/Error_Streams/vts_ac3_48k_6ch_ac3-syncframe-header-corruption_512k_a2812_v0_60sec.mp4"
 
-  # - tcid: VTS_L4_AC3_1402                                  #Todo
-  #   use_case: "Audio Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "BSI corruption"
-  #   stream_name: "Audio/Error_Streams/AC3/vts_ac3_48k_6ch_bsi_corruption_512k_a2814_v0_60sec.mp4"
+  - tcid: VTS_L4_AC3_1402
+    use_case: "Audio Only Error Handling"
+    action: normal_play
+    error_condition: "Coupling exponent strategy flip"
+    stream_name: "Audio/Error_Streams/vts_ac3_48k_6ch_ac3-coupling-exponent-strategy-flip_512k_a2812_v0_60sec.mp4"
 
-  # - tcid: VTS_L4_EAC3_1401                                 #Todo
-  #   use_case: "Audio Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "Frame header corruption"
-  #   stream_name: "Audio/Error_Streams/EAC3/vts_eac3_48k_8ch_frame_header_corruption_768k_a3001_v0_60sec.mp4"
+  - tcid: VTS_L4_EAC3_1401
+    use_case: "Audio Only Error Handling"
+    action: normal_play
+    error_condition: "Frame header corruption"
+    stream_name: "Audio/Error_Streams/vts_eac3_48k_6ch_eac3-syncframe-header-corruption_512k_a2812_v0_60sec.mp4"
+
+  - tcid: VTS_L4_EAC3_1402
+    use_case: "Audio Only Error Handling"
+    action: normal_play
+    error_condition: "Coupling exponent strategy flip"
+    stream_name: "Audio/Error_Streams/vts_eac3_48k_6ch_eac3-coupling-exponent-strategy-flip_512k_a2812_v0_60sec.mp4"
 
   # ---------------------------------------------------------------------------
   # 3.3 Video Only - Robustness & Error Handling
@@ -240,26 +246,26 @@ AVModule:
     error_condition: "Loop filter corruption"
     stream_name: "Video/Error_Streams/vts_vp9_1080p_sdr_30.0f_BT2020_yuv420p_vp9-loop-filter-max_18M_a0_v1799_60sec.webm"
 
-  # - tcid: VTS_L4_AV1_ERR_1701                              #Todo
-  #   use_case: "Video Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "OBU header fuzz"
-  #   stream_name: "Video/Error_Streams/AV1/vts_av1_1080p_hdr10_30.0f_BT2020_yuv420p_av1_obu_header_fuzz_15M_a0_v1800_60sec.mp4"
+  - tcid: VTS_L4_AV1_ERR_1701
+    use_case: "Video Only Error Handling"
+    action: normal_play
+    error_condition: "OBU header fuzz"
+    stream_name: "Video/Error_Streams/vts_av1_1080p_hdr10_30.0f_BT2020_yuv420p_av1-obu-header-fuzz_15M_a0_v95_60sec.mp4"
 
-  # - tcid: VTS_L4_AV1_ERR_1702                              #Todo
-  #   use_case: "Video Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "Tile group size mismatch"
-  #   stream_name: "Video/Error_Streams/AV1/vts_av1_1080p_hdr10_30.0f_BT2020_yuv420p_av1_tile_group_size_mismatch_15M_a0_v1800_60sec.mp4"
+  - tcid: VTS_L4_AV1_ERR_1702
+    use_case: "Video Only Error Handling"
+    action: normal_play
+    error_condition: "Tile group size mismatch"
+    stream_name: "Video/Error_Streams/vts_av1_1080p_hdr10_30.0f_BT2020_yuv420p_av1-tile-group-size-mismatch_15M_a0_v1551_60sec.mp4"
 
-  # - tcid: VTS_L4_AV1_ERR_1703                              #Todo
-  #   use_case: "Video Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "CDF update corruption"
-  #   stream_name: "Video/Error_Streams/AV1/vts_av1_1080p_hdr10_30.0f_BT2020_yuv420p_av1_cdf_update_corruption_15M_a0_v1800_60sec.mp4"
+  - tcid: VTS_L4_AV1_ERR_1703
+    use_case: "Video Only Error Handling"
+    action: normal_play
+    error_condition: "CDF update corruption"
+    stream_name: "Video/Error_Streams/vts_av1_1080p_hdr10_30.0f_BT2020_yuv420p_av1-cdf-update-corruption_15M_a0_v51_60sec.mp4"
 
-  # - tcid: VTS_L4_AV1_ERR_1704                             #Todo
-  #   use_case: "Video Only Error Handling"
-  #   action: normal_play
-  #   error_condition: "Film grain param overflow"
-  #   stream_name: "Video/Error_Streams/AV1/vts_av1_1080p_hdr10_30.0f_BT2020_yuv420p_av1_film_grain_param_overflow_15M_a0_v1800_60sec.mp4"
+  - tcid: VTS_L4_AV1_ERR_1704
+    use_case: "Video Only Error Handling"
+    action: normal_play
+    error_condition: "Film grain param overflow"
+    stream_name: "Video/Error_Streams/vts_av1_1080p_hdr10_30.0f_BT2020_yuv420p_av1-film-grain-param-overflow_15M_a0_v1800_60sec.mp4"

@@ -57,11 +57,11 @@ AVModule:
     codec: "VP9 OPUS"
     stream_name: "Audio_Video/Long_Duration/Trick_Modes/vts_vp9_2160p_sdr_60.0f_BT2020_yuv420p_18M_opus_48k_8ch_256k_a30001_v35998_601sec.webm"
 
-  # - tcid: VTS_L4_AV1_AC3_7001                         #Todo
-  #   use_case: "AV Trick Modes & Seek"
-  #   action: playBackWithTrickModes
-  #   codec: "AV1 AC3"
-  #   stream_name: "Audio_Video/Long_Duration/Trick_Modes/vts_av1_2160p_hlg_60.0f_BT2020_yuv420p_20M_ac3_48k_6ch_512k_a18750_v36000_600sec.mp4"
+  - tcid: VTS_L4_AV1_AC3_7001
+    use_case: "AV Trick Modes & Seek"
+    action: playBackWithTrickModes
+    codec: "AV1 AC3"
+    stream_name: "Audio_Video/Long_Duration/Trick_Modes/vts_av1_2160p_hlg_60.0f_BT2020_yuv420p_20M_ac3_48k_6ch_512k_a18750_v36000_600sec.mp4"
 
   # ---------------------------------------------------------------------------
   # 2.2 Audio Only - Pause/Resume, Trick Modes and Seek
@@ -111,8 +111,8 @@ AVModule:
     codec: "VP9"
     stream_name: "Video/Long_Duration/Trick_Modes/vts_vp9_2160p_sdr_60.0f_BT709_yuv420p_15M_a0_v35998_600sec.webm"
 
-  # - tcid: VTS_L4_AV1_1601                       #Todo
-  #   use_case: "Video Only Trick Modes"
-  #   action: playBackWithTrickModes
-  #   codec: "AV1"
-  #   stream_name: "Video/Long_Duration/Trick_Modes/vts_av1_2160p_hdr10_60.0f_BT2020_yuv420p_15M_a0_v3600_600sec.mp4"
+  - tcid: VTS_L4_AV1_1601
+    use_case: "Video Only Trick Modes"
+    action: playBackWithTrickModes
+    codec: "AV1"
+    stream_name: "Video/Long_Duration/Trick_Modes/vts_av1_2160p_hdr10_60.0f_BT2020_yuv420p_15M_a0_v36000_600sec.mp4"
