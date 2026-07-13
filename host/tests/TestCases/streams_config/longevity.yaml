@@ -23,7 +23,7 @@
 # =============================================================================
 # PERFORMANCE & LONGEVITY TEST CASES
 # Purpose: Validate decoder stability, memory management, and performance
-# consistency during extended playback (3 hours)
+# consistency during extended playback (2 hours)
 # =============================================================================
 
 AVModule:
@@ -43,7 +43,7 @@ AVModule:
     duration: "2 hours"
     stream_name: "Audio_Video/Long_Duration/vts_h264_1080p_sdr_60.0f_BT709_yuv420p_12M_aac_48k_2ch_256k_a337501_v432000_7200sec.mp4"
 
-  - tcid: VTS_L4_H265_AC3_1102
+  - tcid: VTS_L4_H265_EAC3_1102
     use_case: "Performance & Longevity"
     action: normal_play
     codec: "H.265 EAC3"

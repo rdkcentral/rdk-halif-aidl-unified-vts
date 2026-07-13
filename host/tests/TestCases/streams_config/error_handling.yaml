@@ -54,7 +54,7 @@ AVModule:
   - tcid: VTS_L4_VP9_ERR_9001
     use_case: "Video Corruption - Valid Audio"
     action: normal_play
-    error_condition: "VP9 Resolution stress"
+    error_condition: "VP9 Resolution change stress"
     stream_name: "Audio_Video/Error_Streams/vts_vp9_1080p_sdr_60.0f_BT709_yuv420p_vp9-resolution-change-stress_10M_opus_48k_6ch_256k_a3001_v3590_61sec.webm"
 
   - tcid: VTS_L4_AV1_ERR_9001
