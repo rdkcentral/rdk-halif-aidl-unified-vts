@@ -87,49 +87,49 @@ AVModule:
   # ---------------------------------------------------------------------------
   # 2.3 Audio Only - Robustness & Error Handling
   # ---------------------------------------------------------------------------
-  - tcid: VTS_L4_AAC_1401
+  - tcid: VTS_L4_AAC_ERR_1401
     use_case: "Audio Only Error Handling"
     action: normal_play
     error_condition: "ADTS header corruption"
     stream_name: "Audio/Error_Streams/vts_aac_48k_6ch_aac-adts-header-corruption_512k_a2812_v0_60sec.mp4"
 
-  - tcid: VTS_L4_AAC_1402
+  - tcid: VTS_L4_AAC_ERR_1402
     use_case: "Audio Only Error Handling"
     action: normal_play
     error_condition: "Bitrate field corruption"
     stream_name: "Audio/Error_Streams/vts_aac_48k_6ch_bitrate-field-corruption_256k_a2812_v0_60sec.mp4"
 
-  - tcid: VTS_L4_AAC_1403
+  - tcid: VTS_L4_AAC_ERR_1403
     use_case: "Audio Only Error Handling"
     action: normal_play
     error_condition: "Channel mode corruption"
     stream_name: "Audio/Error_Streams/vts_aac_48k_6ch_aac-PCE-channel-map-tamper_256k_a2812_v0_60sec.mp4"
 
-  - tcid: VTS_L4_AAC_1404
+  - tcid: VTS_L4_AAC_ERR_1404
     use_case: "Audio Only Error Handling"
     action: normal_play
     error_condition: "Dynamic range corruption"
     stream_name: "Audio/Error_Streams/vts_aac_48k_6ch_dynamic-range-corruption_512k_a2812_v0_60sec.mp4"
 
-  - tcid: VTS_L4_AC3_1401
+  - tcid: VTS_L4_AC3_ERR_1401
     use_case: "Audio Only Error Handling"
     action: normal_play
     error_condition: "Sync frame corruption"
     stream_name: "Audio/Error_Streams/vts_ac3_48k_6ch_ac3-syncframe-header-corruption_512k_a2812_v0_60sec.mp4"
 
-  - tcid: VTS_L4_AC3_1402
+  - tcid: VTS_L4_AC3_ERR_1402
     use_case: "Audio Only Error Handling"
     action: normal_play
     error_condition: "Coupling exponent strategy flip"
     stream_name: "Audio/Error_Streams/vts_ac3_48k_6ch_ac3-coupling-exponent-strategy-flip_512k_a2812_v0_60sec.mp4"
 
-  - tcid: VTS_L4_EAC3_1401
+  - tcid: VTS_L4_EAC3_ERR_1401
     use_case: "Audio Only Error Handling"
     action: normal_play
     error_condition: "Frame header corruption"
     stream_name: "Audio/Error_Streams/vts_eac3_48k_6ch_eac3-syncframe-header-corruption_512k_a2812_v0_60sec.mp4"
 
-  - tcid: VTS_L4_EAC3_1402
+  - tcid: VTS_L4_EAC3_ERR_1402
     use_case: "Audio Only Error Handling"
     action: normal_play
     error_condition: "Coupling exponent strategy flip"
