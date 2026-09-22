@@ -47,7 +47,7 @@ video_params = {
 }
 
 audio_params = {
-    "Codec": ["aac", "mp3", "ac3", "flac", "pcm_s16le"],
+    "Codec": ["aac", "mp3", "ac3", "flac", "pcm_s16le","eac3","libopus"],
     "Sample Rate": [8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 64000, 88200, 96000],
     "Channels": [1, 2, 3, 6, 8],
     "Bitrate": ["32k", "64k", "128k", "256k", "512k", "1024k"]
@@ -79,6 +79,8 @@ fileformat_mapping = {
     "aac": "aac",
     "mp3": "mp3",
     "ac3": "ac3",
+    "eac3" : "ec3",
+    "opus":"opus",
     "pcm_s16le": "wav",
     "flac": "flac",
     "wma": "wma"
@@ -259,6 +261,9 @@ def generate_ffmpeg_command(vid_dict=None, aud_dict=None, video_input="", audio_
                 "-ac", str(aud_dict["Channels"]),
                 "-b:a", aud_dict["Bitrate"],
                 "-filter:a", f"volume={volume}"]
+
+        if (aud_dict["Codec"] == "opus"):
+            audio_opt_cmd+= ["-l"]
 
         # File name parts
         output_file_parts += [
