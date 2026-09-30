@@ -22,7 +22,7 @@
 nonAvL3Tests:
   description: "Config-driven Non-AV L3 python tests"
   tests:
-    - module: "flash"
+    - module: "firmwareupdate"
       tests:
         - "VTS_FIRMWAREUPDATE_L3_ConcurrentImage"
         - "VTS_FIRMWAREUPDATE_L3_TestAllImages"
@@ -78,7 +78,7 @@ nonAvL3Tests:
         - "VTS_INDICATOR_L3_SetStates"
         - "VTS_INDICATOR_L3_StressTest"
 
-    - module: "boot"
+    - module: "bootreason"
       tests:
         - "VTS_BOOT_L3_VerifyBootReasonExternalCause"
         - "VTS_BOOT_L3_VerifyOverrideBootReason"
