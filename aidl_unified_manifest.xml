@@ -64,11 +64,11 @@
 	   revision="refs/tags/0.5.0" />
 
    <project name="rdk-halif-aidl-test-boot"
-           path="vts_hal_test_components/boot"
-           revision="refs/tags/0.4.0" />
+           path="vts_hal_test_components/bootreason"
+           revision="refs/heads/develop" />
 
    <project name="rdk-halif-aidl-test-flash"
-           path="vts_hal_test_components/flash"
+           path="vts_hal_test_components/firmwareupdate"
            revision="refs/tags/0.4.0" />
 
    <project name="rdk-halif-aidl-test-indicator"

@@ -36,7 +36,7 @@ include_8: profiles/hfp-hdmiinput.yaml
 include_9: profiles/hfp-hdmioutput.yaml
 include_10: profiles/hfp-deepsleep.yaml
 include_11: profiles/hfp-deviceinfo.yaml
-include_12: profiles/hfp-boot.yaml
+include_12: profiles/hfp-bootreason.yaml
 include_13: profiles/hfp-firmwareupdate.yaml
 include_14: profiles/hfp-indicator.yaml
 include_15: profiles/hfp-thermalsensor.yaml
