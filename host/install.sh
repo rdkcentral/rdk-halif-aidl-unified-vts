@@ -24,6 +24,7 @@ MY_PATH="$(realpath ${BASH_SOURCE[0]})"
 MY_DIR="$(dirname ${MY_PATH})"
 TESTS_DIR="${MY_DIR}/tests"
 RAFT_DIR="${TESTS_DIR}/raft"
+RDK_RAFT_DIR="${TESTS_DIR}/rdk_raft"
 PLUGINS_FRAMEWORK_DIR="${RAFT_DIR}/framework/plugins"
 VENV_NAME="python_venv"
 VENV_DIR="${MY_DIR}/${VENV_NAME}"  # Default virtual environment directory name
@@ -158,12 +159,15 @@ setup_and_enable_venv
 
 ### Clone required repos ###
 # Setup raft
-clone_repo git@github.com:rdkcentral/python_raft.git "${RAFT_DIR}" "1.10.0" "in ./raft"
+clone_repo git@github.com:rdkcentral/python_raft.git "${RAFT_DIR}" "feature/gh-raft-controller-migration" "in ./raft"
 install_pip_requirements "${RAFT_DIR}"/requirements.txt
 
 # Setup ut-raft
-clone_repo git@github.com:rdkcentral/ut-raft.git "${PLUGINS_FRAMEWORK_DIR}/ut_raft" "2.2.0" "in ./raft/framework/plugins"
+clone_repo git@github.com:rdkcentral/ut-raft.git "${PLUGINS_FRAMEWORK_DIR}/ut_raft" "develop" "in ./raft/framework/plugins"
 install_pip_requirements "${PLUGINS_FRAMEWORK_DIR}"/ut_raft/requirements.txt
+
+# Setup rdk-raft alongside python_raft
+clone_repo git@github.com:rdkcentral/rdk_raft.git "${RDK_RAFT_DIR}" "feature/gh-raft-controller-migration" "in ./rdk_raft"
 
 ## Install your own sub git repo's in here as required
 #

@@ -49,15 +49,15 @@
 
    <project name="rdk-halif-aidl-test-hdmiinput"
            path="vts_hal_test_components/hdmiinput"
-           revision="refs/tags/0.5.1" />
+           revision="refs/heads/feature/gh-controller-migration-from-tests" />
 
    <project name="rdk-halif-aidl-test-hdmioutput"
            path="vts_hal_test_components/hdmioutput"
-           revision="refs/tags/0.4.1" />
+           revision="refs/heads/feature/gh-controller-migration-from-tests" />
 
    <project name="rdk-halif-aidl-test-deepsleep"
            path="vts_hal_test_components/deepsleep"
-           revision="refs/tags/0.5.0" />
+           revision="refs/heads/feature/gh-controller-migration-from-tests" />
 
    <project name="rdk-halif-aidl-test-device-info"
            path="vts_hal_test_components/deviceinfo"
@@ -65,11 +65,11 @@
 
    <project name="rdk-halif-aidl-test-boot"
            path="vts_hal_test_components/boot"
-           revision="refs/tags/0.4.0" />
+           revision="refs/heads/feature/gh-controller-migration-from-tests" />
 
    <project name="rdk-halif-aidl-test-flash"
            path="vts_hal_test_components/flash"
-           revision="refs/tags/0.4.0" />
+           revision="refs/heads/feature/gh-controller-migration-from-tests" />
 
    <project name="rdk-halif-aidl-test-indicator"
            path="vts_hal_test_components/indicator"
@@ -77,14 +77,14 @@
 
    <project name="rdk-halif-aidl-test-compositeinput"
            path="vts_hal_test_components/compositeinput"
-           revision="refs/tags/0.4.1" />
+           revision="refs/heads/feature/gh-controller-migration-from-tests" />
 
    <project name="rdk-halif-aidl-test-motion-sensor"
            path="vts_hal_test_components/motionsensor"
-           revision="refs/tags/0.4.0" />
+           revision="refs/heads/feature/gh-controller-migration-from-tests" />
 
    <project name="rdk-halif-aidl-test-thermal-sensor"
            path="vts_hal_test_components/thermalsensor"
-           revision="refs/tags/0.4.0" />
+           revision="refs/heads/feature/gh-controller-migration-from-tests" />
 
 </manifest>
