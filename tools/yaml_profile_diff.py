@@ -34,12 +34,6 @@ import os
 import yaml
 
 
-SOURCE_COMPONENT_MAP = {
-    "boot": ["bootreason"],
-    "flash": ["firmwareupdate"],
-}
-
-
 SOURCE_FILE_MAP = {
     "motionsensor": [
         os.path.join(
@@ -66,11 +60,6 @@ SOURCE_FILE_MAP = {
         )
     ],
 }
-
-
-def get_source_components(target_component):
-    """Return candidate source components for a target component."""
-    return SOURCE_COMPONENT_MAP.get(target_component, [target_component])
 
 
 def load_released_versions(source_dir):
@@ -283,9 +272,9 @@ def diff_files(file1, file2, verbose=True):
 
 def discover_pairs(dir1, dir2, warn_on_unmatched=True):
     """
-    Walk dir1 for profile YAML files and attempt to find a matching file in dir2.
+        Walk dir1 for canonical profile YAML files and attempt to find a matching file in dir2.
     Pattern:
-      dir1: <component>/profiles/<name>.yaml
+            dir1: <component>/profiles/hfp-<component>.yaml
       dir2: <component>/current/<name_without_suffix>.yaml
               or <component>/current/<name>.yaml
     Falls back to matching by YAML root node.
@@ -296,15 +285,14 @@ def discover_pairs(dir1, dir2, warn_on_unmatched=True):
         if not root.endswith("profiles") and "/profiles" not in root:
             continue
         for fname in files:
-            if not fname.endswith(".yaml"):
-                continue
             f1 = os.path.join(root, fname)
             rel = os.path.relpath(f1, dir1)   # e.g. hdmicec/profiles/hfp-hdmicec_vcomponent.yaml
             parts = rel.split(os.sep)
             if len(parts) < 3:
                 continue
             component = parts[0]
-            source_components = get_source_components(component)
+            if fname != f"hfp-{component}.yaml":
+                continue
 
             # Try to load file1 to get its root node for smarter matching
             try:
@@ -322,9 +310,8 @@ def discover_pairs(dir1, dir2, warn_on_unmatched=True):
             else:
                 source_component_candidates = [
                     get_candidate_source_files(
-                        dir2, source_component, default_version, component_versions
+                        dir2, component, default_version, component_versions
                     )
-                    for source_component in source_components
                 ]
             for candidate_files in source_component_candidates:
                 for cf_path in candidate_files:
