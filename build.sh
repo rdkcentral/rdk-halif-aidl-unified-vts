@@ -36,7 +36,7 @@ OUT_TAR_FILE=vts_unified.tar.gz
 
 declare -a HALIF_TEST_COMPONENTS=(
   avbuffer audiodecoder audiosink videodecoder videosink avclock planecontrol
-  hdmicec hdmiinput hdmioutput deepsleep compositeinput deviceinfo boot flash indicator
+  hdmicec hdmiinput hdmioutput deepsleep compositeinput deviceinfo bootreason firmwareupdate indicator
   audiomixer thermalsensor motionsensor
 )
 
