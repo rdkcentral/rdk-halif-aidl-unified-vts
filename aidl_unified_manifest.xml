@@ -45,46 +45,46 @@
 
    <project name="rdk-halif-aidl-test-cec"
            path="vts_hal_test_components/hdmicec"
-           revision="refs/tags/0.6.1" />
+           revision="refs/tags/0.6.2" />
 
    <project name="rdk-halif-aidl-test-hdmiinput"
            path="vts_hal_test_components/hdmiinput"
-           revision="refs/heads/feature/gh-controller-migration-from-tests" />
+           revision="refs/tags/0.6.0" />
 
    <project name="rdk-halif-aidl-test-hdmioutput"
            path="vts_hal_test_components/hdmioutput"
-           revision="refs/heads/feature/gh-controller-migration-from-tests" />
+           revision="refs/tags/0.5.0" />
 
    <project name="rdk-halif-aidl-test-deepsleep"
            path="vts_hal_test_components/deepsleep"
-           revision="refs/heads/feature/gh-controller-migration-from-tests" />
+           revision="refs/tags/0.6.0" />
 
    <project name="rdk-halif-aidl-test-device-info"
            path="vts_hal_test_components/deviceinfo"
-	   revision="refs/tags/0.5.0" />
+	   revision="refs/tags/0.5.1" />
 
    <project name="rdk-halif-aidl-test-boot"
-           path="vts_hal_test_components/boot"
-           revision="refs/heads/feature/gh-controller-migration-from-tests" />
+           path="vts_hal_test_components/bootreason"
+           revision="refs/tags/0.5.0" />
 
    <project name="rdk-halif-aidl-test-flash"
-           path="vts_hal_test_components/flash"
-           revision="refs/heads/feature/gh-controller-migration-from-tests" />
+           path="vts_hal_test_components/firmwareupdate"
+           revision="refs/tags/0.5.0" />
 
    <project name="rdk-halif-aidl-test-indicator"
            path="vts_hal_test_components/indicator"
-           revision="refs/tags/0.5.0" />
+           revision="refs/tags/0.5.1" />
 
    <project name="rdk-halif-aidl-test-compositeinput"
            path="vts_hal_test_components/compositeinput"
-           revision="refs/heads/feature/gh-controller-migration-from-tests" />
+           revision="refs/tags/0.5.0" />
 
    <project name="rdk-halif-aidl-test-motion-sensor"
            path="vts_hal_test_components/motionsensor"
-           revision="refs/heads/feature/gh-controller-migration-from-tests" />
+           revision="refs/tags/0.5.0" />
 
    <project name="rdk-halif-aidl-test-thermal-sensor"
            path="vts_hal_test_components/thermalsensor"
-           revision="refs/heads/feature/gh-controller-migration-from-tests" />
+           revision="refs/tags/0.5.0" />
 
 </manifest>
