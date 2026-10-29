@@ -76,25 +76,25 @@ AVModule:
     use_case: "HDR Metadata Propagation"
     action: normal_play
     hdr_mode: "HDR10"
-    stream_name: "Audio_Video/HDR/vts_h265_2160p_hdr10_60.0f_BT2020_yuv420p_60M_eac3_48k_6ch_512k_a1875_v3600_60sec.mp4"
+    stream_name: "Audio_Video/HDR/vts_h265_2160p_hdr10_60.0f_BT2020_yuv420p_20M_eac3_48k_6ch_512k_a1875_v3600_60sec.mp4"
 
   - tcid: VTS_L4_HDR10P_2001
     use_case: "HDR Metadata Propagation"
     action: normal_play
     hdr_mode: "HDR10+"
-    stream_name: "Audio_Video/HDR/vts_h265_2160p_hdr10+_60.0f_BT2020_yuv420p_60M_eac3_48k_6ch_512k_a1875_v3600_60sec.mp4"
+    stream_name: "Audio_Video/HDR/vts_h265_2160p_hdr10+_60.0f_BT2020_yuv420p_20M_eac3_48k_6ch_512k_a1875_v3600_60sec.mp4"
 
   - tcid: VTS_L4_HLG_2001
     use_case: "HDR Metadata Propagation"
     action: normal_play
     hdr_mode: "HLG"
-    stream_name: "Audio_Video/HDR/vts_h265_2160p_hlg_60.0f_BT2020_yuv420p_60M_ac3_48k_6ch_512k_a1875_v3600_60sec.mp4"
+    stream_name: "Audio_Video/HDR/vts_h265_2160p_hlg_60.0f_BT2020_yuv420p_20M_ac3_48k_6ch_512k_a1875_v3600_60sec.mp4"
 
   - tcid: VTS_L4_SDR_2001
     use_case: "HDR Metadata Propagation"
     action: normal_play
     hdr_mode: "SDR"
-    stream_name: "Audio_Video/HDR/vts_vp9_2160p_sdr_60.0f_BT2020_yuv420p_20M_opus_48k_6ch_512k_a3001_v3598_61sec.webm"
+    stream_name: "Audio_Video/HDR/vts_vp9_2160p_sdr_60.0f_BT2020_yuv420p_20M_opus_48k_6ch_512k_a3001_v3600_61sec.webm"
 
   - tcid: VTS_L4_DVISION_2001
     use_case: "HDR Metadata Propagation"
@@ -291,7 +291,7 @@ AVModule:
     use_case: "Video Only"
     action: normal_play
     codec: "H.265"
-    stream_name: "Video/vts_h265_2160p_hdr10_24.0f_BT2020_yuv420p_25M_a0_v1440_60sec.mp4"
+    stream_name: "Video/vts_h265_2160p_hdr10_24.0f_BT2020_yuv420p_15M_a0_v1440_60sec.mp4"
 
   - tcid: VTS_L4_HEVC_1502
     use_case: "Video Only"
