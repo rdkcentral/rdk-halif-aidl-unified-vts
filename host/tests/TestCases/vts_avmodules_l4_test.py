@@ -208,12 +208,17 @@ class L4TestClass(VTSTestHelperClass):
                 if "Is the stream playback good (Y/N)?" in output:
                     failed = not self.testVerifyAVPlayback(True)
                     if failed:
-                        self.writeCommands("N\n", self.player_session)
+                        self.player_session.write("N")
                         self.log.info("Playback verification failed.")
                     else:
-                        self.writeCommands("Y\n", self.player_session)
+                        self.player_session.write("Y")
                         self.log.info("Playback verification passed.")
 
+            # Capture the summary from the same console used by ut_menu.
+            if "Run Summary:" not in output:
+                output += self.player_session.read_until("Run Summary:", timeout=60)
+            if "Run Summary:" in output and "Elapsed time =" not in output:
+                output += self.player_session.read_until("Elapsed time =", timeout=60)
             result = ut_menu.collect_results(output, True)
             if result is None:
                 final_result = False

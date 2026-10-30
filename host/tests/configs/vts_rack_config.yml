@@ -137,8 +137,8 @@ rackConfig:
                         username: "xyz" # Needs to be filled out with login username
                         password:  'xyz' # Needs to be filled out with login password
                         port: xxxx
-                        source_control_port: yyyy  # Controller port must be unique for each <ControllerName>Controller
-                        sink_control_port: yyyy    # Controller port must be unique for each <ControllerName>Controller
+                        source_control_port: yyyy  # Controller port for HDMIInput Service
+                        sink_control_port: yyyy    # Controller port must HDMIOutput Service
                     compositeController:
                         type: virtual-composite-controller
                         vendor: "vComponent"

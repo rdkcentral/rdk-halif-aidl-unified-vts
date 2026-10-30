@@ -226,25 +226,25 @@ AVModule:
     use_case: "Video Only Error Handling"
     action: normal_play
     error_condition: "Superframe index corruption"
-    stream_name: "Video/Error_Streams/vts_vp9_1080p_sdr_30.0f_BT2020_yuv420p_vp9-superframe-index-corruption_18M_a0_v1799_60sec.webm"
+    stream_name: "Video/Error_Streams/vts_vp9_1080p_sdr_30.0f_BT2020_yuv420p_vp9-superframe-index-corruption_18M_a0_v1798_60sec.webm"
 
   - tcid: VTS_L4_VP9_ERR_1702
     use_case: "Video Only Error Handling"
     action: normal_play
     error_condition: "Probability table desync"
-    stream_name: "Video/Error_Streams/vts_vp9_1080p_sdr_30.0f_BT2020_yuv420p_vp9-prob-table-desync_18M_a0_v1799_60sec.webm"
+    stream_name: "Video/Error_Streams/vts_vp9_1080p_sdr_30.0f_BT2020_yuv420p_vp9-prob-table-desync_18M_a0_v1800_60sec.webm"
 
   - tcid: VTS_L4_VP9_ERR_1703
     use_case: "Video Only Error Handling"
     action: normal_play
     error_condition: "Resolution change stress"
-    stream_name: "Video/Error_Streams/vts_vp9_1080p_sdr_30.0f_BT2020_yuv420p_vp9-resolution-change-stress_18M_a0_v1799_60sec.webm"
+    stream_name: "Video/Error_Streams/vts_vp9_1080p_sdr_30.0f_BT2020_yuv420p_vp9-resolution-change-stress_18M_a0_v1800_60sec.webm"
 
   - tcid: VTS_L4_VP9_ERR_1704
     use_case: "Video Only Error Handling"
     action: normal_play
     error_condition: "Loop filter corruption"
-    stream_name: "Video/Error_Streams/vts_vp9_1080p_sdr_30.0f_BT2020_yuv420p_vp9-loop-filter-max_18M_a0_v1799_60sec.webm"
+    stream_name: "Video/Error_Streams/vts_vp9_1080p_sdr_30.0f_BT2020_yuv420p_vp9-loop-filter-max_18M_a0_v1800_60sec.webm"
 
   - tcid: VTS_L4_AV1_ERR_1701
     use_case: "Video Only Error Handling"

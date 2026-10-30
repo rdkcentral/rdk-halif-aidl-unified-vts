@@ -36,7 +36,6 @@ VTS:
         streams:
           - Audio_Decoder/AAC_LC/Valid/tones_8k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_11.025k_2_64.aac
-          - Audio_Decoder/AAC_LC/Valid/tones_11.025k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_12k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_16k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_16k_2_64.wav
@@ -50,7 +49,6 @@ VTS:
           - Audio_Decoder/AAC_LC/Valid/tones_48k_7.1_512.aac
           - Audio_Decoder/AAC_LC/Valid/tones_64k_2_256.aac
           - Audio_Decoder/AAC_LC/Valid/tones_88.2k_2_256.aac
-          - Audio_Decoder/AAC_LC/Valid/tones_8k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_96k_2_384.aac
           - Audio_Decoder/AAC_LC/Valid/tones_96k_5.1_512.aac
           - Audio_Decoder/AAC_LC/Valid/tones_96k_7.1_1024.aac
@@ -157,7 +155,6 @@ VTS:
         streams:
           - Audio_Decoder/AAC_LC/Valid/tones_8k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_11.025k_2_64.aac
-          - Audio_Decoder/AAC_LC/Valid/tones_11.025k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_12k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_16k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_16k_2_64.wav
@@ -171,7 +168,6 @@ VTS:
           - Audio_Decoder/AAC_LC/Valid/tones_48k_7.1_512.aac
           - Audio_Decoder/AAC_LC/Valid/tones_64k_2_256.aac
           - Audio_Decoder/AAC_LC/Valid/tones_88.2k_2_256.aac
-          - Audio_Decoder/AAC_LC/Valid/tones_8k_2_64.aac
           - Audio_Decoder/AAC_LC/Valid/tones_96k_2_384.aac
           - Audio_Decoder/AAC_LC/Valid/tones_96k_5.1_512.aac
           - Audio_Decoder/AAC_LC/Valid/tones_96k_7.1_1024.aac
@@ -312,16 +308,19 @@ VTS:
       3:
         name: "VTS_L3_VideoDecoder"
         streams:
-          - /Video_Decoder/H264_HIGH_1920x1080_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_734.es
-          - /Video_Decoder/H264_HIGH_1280x720_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420.es
-          - /Video_Decoder/H264_HIGH_720x480_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420.es
-          - /Video_Decoder/H264_HIGH_1920x1080_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_734_GOP.es
-          - /Video_Decoder/H265_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
-          - /Video_Decoder/VP9_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
-          - /Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_MDI.es
-          - /Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_COLORIMETRY.es
-          - /Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_CLL.es
-          - /Video_Decoder/AV1_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.ivf
+          - Video_Decoder/H264_HIGH_1920x1080_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_734.es
+          - Video_Decoder/H264_HIGH_1280x720_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420.es
+          - Video_Decoder/H264_HIGH_720x480_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420.es
+          - Video_Decoder/H264_HIGH_1920x1080_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_734_GOP.es
+          - Video_Decoder/H265_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
+          - Video_Decoder/VP9_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
+          - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_MDI.es
+          - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_COLORIMETRY.es
+          - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_CLL.es
+          - Video_Decoder/AV1_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.ivf
+          - Video_Decoder/H264_HIGH_RES_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_ABR.es
+          - Video_Decoder/H265_HIGH_RES_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_ABR.es
+          - Video_Decoder/VP9_HIGH_RES_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_ABR.es
         tests:
           - VDecode_Sequential_NonTunnel_NonSecure
           - VDecode_Sequential_NonTunnel_NonSecure_CODEC
