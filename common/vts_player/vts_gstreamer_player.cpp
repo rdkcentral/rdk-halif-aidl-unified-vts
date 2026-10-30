@@ -138,7 +138,7 @@ bool VTSGStreamerPlayer::play(const std::string &streamPath)
 
     if (gst_element_set_state(playbin, GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE)
     {
-        UT_LOG_ERROR("[GStreamer] Failed to set PLAYING");
+        UT_LOG_ERROR("[GStreamer] Failed to set PLAYING ");
 	UT_ASSERT_TRUE(false);
         return false;
     }
