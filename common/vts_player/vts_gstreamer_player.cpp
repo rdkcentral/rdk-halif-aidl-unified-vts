@@ -169,7 +169,7 @@ void VTSGStreamerPlayer::trickMode(float speed)
         // Query current playback position
         if (!gst_element_query_position(playbin, GST_FORMAT_TIME, &pos)) {
             UT_LOG_ERROR("Failed to query current position, defaulting to 0\n");
-	    UT_ASSERT_TRUE(false);
+            UT_ASSERT_TRUE(false);
             pos = 0;
         }
 
@@ -181,7 +181,7 @@ void VTSGStreamerPlayer::trickMode(float speed)
                               GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE))
         {
             UT_LOG_ERROR("Playing at %fx speed failed!\n", speed);
-	    UT_ASSERT_TRUE(false);
+            UT_ASSERT_TRUE(false);
         }
     }
 }
@@ -196,7 +196,7 @@ void VTSGStreamerPlayer::seek(int64_t offset_ms)
         if (!gst_element_query_position(playbin, GST_FORMAT_TIME, &cur_pos))
         {
             UT_LOG_ERROR("Failed to query current position\n");
-	    UT_ASSERT_TRUE(false);
+            UT_ASSERT_TRUE(false);
             return;
         }
 
@@ -214,7 +214,7 @@ void VTSGStreamerPlayer::seek(int64_t offset_ms)
                               GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE))
         {
             UT_LOG_ERROR("Relative seek failed!\n");
-	    UT_ASSERT_TRUE(false);
+            UT_ASSERT_TRUE(false);
         }
     }
 }
