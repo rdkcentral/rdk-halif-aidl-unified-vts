@@ -116,7 +116,7 @@ bool VTSGStreamerPlayer::init()
     if (!playbin)
     {
         UT_LOG_ERROR("[GStreamer] Failed to create playbin");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         return false;
     }
     bus = gst_element_get_bus(playbin);
@@ -139,7 +139,7 @@ bool VTSGStreamerPlayer::play(const std::string &streamPath)
     if (gst_element_set_state(playbin, GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE)
     {
         UT_LOG_ERROR("[GStreamer] Failed to set PLAYING ");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         return false;
     }
     return true;
@@ -246,7 +246,7 @@ void VTSGStreamerPlayer::loop()
                 gchar *dbg = nullptr;
                 gst_message_parse_error(msg, &err, &dbg);
                 UT_LOG_ERROR("[GStreamer] ERROR: %s", (err ? err->message : ""));
-		UT_ASSERT_TRUE(false);
+                UT_ASSERT_TRUE(false);
                 if (dbg) g_free(dbg);
                 if (err) g_error_free(err);
                 terminate = true;
@@ -382,20 +382,20 @@ void VTSGStreamerPlayer::configAudioPipe(GstCaps *newAudioCaps)
     UT_LOG_INFO("[GStreamer] configAudioPipe: First time configuring audio pipeline for AAC");
     if (!curAudioDecodeBin || !curAudioTypefind) {
         UT_LOG_ERROR("[GStreamer] curAudioDecodeBin or curAudioTypefind is NULL");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         return;
     }
 
     GstPad *pTypfdSrcPad = gst_element_get_static_pad(curAudioTypefind, "src");
     if (!pTypfdSrcPad) {
         UT_LOG_ERROR("[GStreamer] Failed to get typefind src pad");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         return;
     }
     GstPad *pTypfdSrcPeerPad = gst_pad_get_peer(pTypfdSrcPad);
     if (!pTypfdSrcPeerPad) {
         UT_LOG_ERROR("[GStreamer] Failed to get peer pad for typefind src");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         gst_object_unref(pTypfdSrcPad);
         return;
     }
@@ -412,7 +412,7 @@ void VTSGStreamerPlayer::configAudioPipe(GstCaps *newAudioCaps)
 
     if (!newAudioDecoder || !newQueue) {
         UT_LOG_ERROR("[GStreamer] Failed to create new decoder or queue");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         gst_object_unref(pTypfdSrcPad);
         gst_object_unref(pTypfdSrcPeerPad);
         return;
@@ -453,7 +453,7 @@ void VTSGStreamerPlayer::reconfigAudioPipe(GstCaps *newAudioCaps)
     UT_LOG_INFO("[GStreamer] reconfigAudioPipe: Swapping audio decoder");
     if (!curAudioDecodeBin || !curAudioDecoder) {
         UT_LOG_ERROR("[GStreamer] curAudioDecodeBin or curAudioDecoder is NULL");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         return;
     }
 
@@ -461,7 +461,7 @@ void VTSGStreamerPlayer::reconfigAudioPipe(GstCaps *newAudioCaps)
     GstPad *audioDecSinkPad = gst_element_get_static_pad(curAudioDecoder, "sink");
     if (!audioDecSrcPad || !audioDecSinkPad) {
         UT_LOG_ERROR("[GStreamer] Failed to get audio decoder pads");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         if (audioDecSrcPad) gst_object_unref(audioDecSrcPad);
         if (audioDecSinkPad) gst_object_unref(audioDecSinkPad);
         return;
@@ -471,7 +471,7 @@ void VTSGStreamerPlayer::reconfigAudioPipe(GstCaps *newAudioCaps)
     GstPad *audioDecSinkPeerPad = gst_pad_get_peer(audioDecSinkPad);
     if (!audioDecSrcPeerPad || !audioDecSinkPeerPad) {
         UT_LOG_ERROR("[GStreamer] Failed to get peer pads for audio decoder");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         gst_object_unref(audioDecSrcPad);
         gst_object_unref(audioDecSinkPad);
         if (audioDecSrcPeerPad) gst_object_unref(audioDecSrcPeerPad);
@@ -505,7 +505,7 @@ void VTSGStreamerPlayer::reconfigAudioPipe(GstCaps *newAudioCaps)
 
     if (!newAudioDecoder) {
         UT_LOG_ERROR("[GStreamer] Failed to create new audio decoder");
-	UT_ASSERT_TRUE(false);
+        UT_ASSERT_TRUE(false);
         gst_object_unref(audioDecSrcPad);
         gst_object_unref(audioDecSinkPad);
         gst_object_unref(audioDecSrcPeerPad);
