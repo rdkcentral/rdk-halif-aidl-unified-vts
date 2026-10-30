@@ -13,35 +13,35 @@
 
   <project name="rdk-halif-aidl-test-audiodecoder"
            path="vts_hal_test_components/audiodecoder"
-	   revision="refs/tags/0.7.2" />
+	   revision="refs/tags/0.7.3" />
 
   <project name="rdk-halif-aidl-test-videodecoder"
            path="vts_hal_test_components/videodecoder"
-	   revision="refs/tags/0.7.2" />
+	   revision="refs/tags/0.7.3" />
 
   <project name="rdk-halif-aidl-test-audiosink"
            path="vts_hal_test_components/audiosink"
-	   revision="refs/tags/0.7.2" />
+	   revision="refs/tags/0.7.3" />
 
   <project name="rdk-halif-aidl-test-videosink"
            path="vts_hal_test_components/videosink"
-	   revision="refs/tags/0.7.2" />
+	   revision="refs/tags/0.7.3" />
 
    <project name="rdk-halif-aidl-test-avclock"
            path="vts_hal_test_components/avclock"
-	   revision="refs/tags/0.6.1" />
+	   revision="refs/tags/0.6.2" />
 
    <project name="rdk-halif-aidl-test-planecontrol"
            path="vts_hal_test_components/planecontrol"
-	   revision="refs/tags/0.5.1" />
+	   revision="refs/tags/0.5.2" />
 
    <project name="rdk-halif-aidl-test-audiomixer"
            path="vts_hal_test_components/audiomixer"
-           revision="refs/tags/0.2.0" />
+           revision="refs/tags/0.2.1" />
 
    <project name="rdk-halif-aidl-L4-Vendor"
            path="vts_hal_test_components/l4_tests"
-           revision="refs/tags/0.3.0" />
+           revision="refs/tags/0.3.1" />
 
    <project name="rdk-halif-aidl-test-cec"
            path="vts_hal_test_components/hdmicec"
