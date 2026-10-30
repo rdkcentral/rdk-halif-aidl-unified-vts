@@ -65,7 +65,6 @@ VTS:
           - setProperty_neg
           - setAudioFormat_pos
           - setAudioFormat_neg
-
       1:
         name: "VTS_L2_AudioDecoder"
         tests:
@@ -294,13 +293,10 @@ VTS:
         name: "VTS_L1_PlaneControl"
         tests:
           - getCapabilities_pos
-          - getNativeGraphicsWindowHandle_pos
-          - getNativeGraphicsWindowHandle_neg
-          - flipGraphicsBuffer_pos
-          - flipGraphicsBuffer_neg
           - setVideoSourceDestinationPlaneMapping_pos
           - setVideoSourceDestinationPlaneMapping_neg
           - getVideoSourceDestinationPlaneMapping_pos
+          - getVideoSourceDestinationPlaneMapping_neg
           - getProperty_pos
           - getProperty_neg
           - setProperty_pos
@@ -313,8 +309,8 @@ VTS:
           - registerListener_neg
           - unregisterListener_pos
           - unregisterListener_neg
-          - releaseNativeGraphicsWindowHandle_pos
-          - releaseNativeGraphicsWindowHandle_neg
+          - getGraphicsFbProvider_pos
+          - getGraphicsFbProvider_neg
       12:
         name: "VTS_L2_PlaneControl"
         tests:
@@ -568,7 +564,7 @@ VTS:
           - test_l2_setgetNetworkStates
           - test_l2_setgetMaintenanceStates
       32:
-        name: "VTS_L1_AUDIOMIXER"
+        name: "VTS_L1_AudioMixer"
         tests:
           - getAudioMixerIds_pos
           - getAudioMixer_pos
@@ -675,7 +671,7 @@ VTS:
           - capture_stop_neg
           - capture_releaseData_neg
       33:
-        name: "VTS_L2_AUDIOMIXER"
+        name: "VTS_L2_AudioMixer"
         tests:
           - StateTransitions
           - StateTransitions_MultipleInstances
@@ -687,3 +683,4 @@ VTS:
           - OutputPort_StateTransitions_MultipleInstances
           - Dap_SetAndGetAllCapabilities
           - AudioCapture_Lifecycle
+
