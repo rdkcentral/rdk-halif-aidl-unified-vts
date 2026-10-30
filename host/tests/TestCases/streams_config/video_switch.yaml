@@ -41,4 +41,3 @@ AVModule:
     action: video_switch
     codec: "H265 EAC3 AAC"
     stream_name: "Audio_Video/AV_Switch/vts_multi_codec_1080p_hdr10_60.0f_BT2020_yuv420p_48k_6ch_512k_a3750_v7200_120sec.mp4"
-
