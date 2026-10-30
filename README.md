@@ -35,8 +35,8 @@ This document outlines the steps to build and run the Unified Vendor Testing Sui
 
 The build scripts use HTTPS URLs to clone repositories. To avoid being prompted for credentials during the build, configure a GitHub Personal Access Token (PAT) in your `~/.netrc` file:
 
-1. Generate a PAT on GitHub with `repo` (read) scope:
-   - <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens>
+1. Generate a PAT on GitHub with `repo` (read) scope, preferably the `classic` one:
+   - <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-tokens-classic>
 
 2. Add your credentials to `~/.netrc`:
 
