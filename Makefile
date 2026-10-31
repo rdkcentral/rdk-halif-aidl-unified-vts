@@ -28,6 +28,7 @@ AUDIO_SINK_TEST_DIR := $(VTS_TEST_DIR)/audiosink
 VIDEO_DECODER_TEST_DIR := $(VTS_TEST_DIR)/videodecoder
 VIDEO_SINK_TEST_DIR := $(VTS_TEST_DIR)/videosink
 AV_BUFFER_TEST_DIR := $(VTS_TEST_DIR)/avbuffer
+DRM_TEST_DIR := $(VTS_TEST_DIR)/drm
 AV_CLOCK_TEST_DIR := $(VTS_TEST_DIR)/avclock
 PLANE_CONTROL_TEST_DIR := $(VTS_TEST_DIR)/planecontrol
 L4_TEST_DIR := $(VTS_TEST_DIR)/l4_tests
@@ -72,6 +73,7 @@ AUDIOSINK_VERSION := $(shell cd $(AUDIO_SINK_TEST_DIR) && git describe --tags --
 VIDEODECODER_VERSION := $(shell cd $(VIDEO_DECODER_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 VIDEOSINK_VERSION := $(shell cd $(VIDEO_SINK_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 AVBUFFER_VERSION := $(shell cd $(AV_BUFFER_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
+DRM_VERSION := $(shell cd $(DRM_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 AVCLOCK_VERSION := $(shell cd $(AV_CLOCK_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 PLANECONTROL_VERSION := $(shell cd $(PLANE_CONTROL_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 HDMICEC_VERSION := $(shell cd $(HDMICEC_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
@@ -95,6 +97,7 @@ $(info AUDIOSINK_VERSION: $(AUDIOSINK_VERSION))
 $(info VIDEODECODER_VERSION: $(VIDEODECODER_VERSION))
 $(info VIDEOSINK_VERSION: $(VIDEOSINK_VERSION))
 $(info AVBUFFER_VERSION: $(AVBUFFER_VERSION))
+$(info DRM_VERSION: $(DRM_VERSION))
 $(info AVCLOCK_VERSION: $(AVCLOCK_VERSION))
 $(info PLANECONTROL_VERSION: $(PLANECONTROL_VERSION))
 $(info HDMICEC_VERSION: $(HDMICEC_VERSION))
@@ -127,6 +130,7 @@ CXXFLAGS := -std=c++17 -g3 -O0 -Wno-unknown-pragmas -Wno-attributes\
             -DVIDEODECODER_VERSION=\"$(VIDEODECODER_VERSION)\" \
             -DVIDEOSINK_VERSION=\"$(VIDEOSINK_VERSION)\" \
             -DAVBUFFER_VERSION=\"$(AVBUFFER_VERSION)\" \
+            -DDRM_VERSION=\"$(DRM_VERSION)\" \
             -DAVCLOCK_VERSION=\"$(AVCLOCK_VERSION)\" \
             -DPLANECONTROL_VERSION=\"$(PLANECONTROL_VERSION)\" \
             -DHDMICEC_VERSION=\"$(HDMICEC_VERSION)\" \
@@ -156,12 +160,19 @@ ifeq ($(ENABLE_AV_L4_TEST),1)
 CXXFLAGS += -DENABLE_AV_L4_TEST
 endif
 
+ifeq ($(ENABLE_DRM_TEST),1)
+CXXFLAGS += -DENABLE_DRM_TEST
+endif
+
 SRC_DIRS := $(AUDIO_DECODER_TEST_DIR)/src
 SRC_DIRS += $(AUDIO_SINK_TEST_DIR)/src
 SRC_DIRS += $(AV_BUFFER_TEST_DIR)/src
 SRC_DIRS += $(VIDEO_DECODER_TEST_DIR)/src
 SRC_DIRS += $(VIDEO_SINK_TEST_DIR)/src
 SRC_DIRS += $(AV_CLOCK_TEST_DIR)/src
+ifeq ($(ENABLE_DRM_TEST),1)
+SRC_DIRS += $(DRM_TEST_DIR)/src
+endif
 ifeq ($(ENABLE_PLANE_CONTROL_TEST),1)
 SRC_DIRS += $(PLANE_CONTROL_TEST_DIR)/src
 endif
@@ -202,10 +213,28 @@ XLDFLAGS             += $(HALIF_MODULE_LIBS)
 XLDFLAGS             += -lbinder -lutils
 XLDFLAGS             += -lavbufferhelper
 
-INC_DIRS += $(ROOT_DIR)/build/usr/include
 INC_DIRS += $(ROOT_DIR)/common/avbufferhelper_skeleton/
 INC_DIRS += $(SRC_DIRS)
 INC_DIRS += $(ROOT_DIR)/common/graphics_libraries/include
+
+INC_DIRS += $(ROOT_DIR)/build/usr/include
+ifeq ($(ENABLE_DRM_TEST),1)
+DRM_CURL_DIR ?= $(ROOT_DIR)/ut-core/framework/ut-control/build/$(TARGET)/curl
+INC_DIRS += $(DRM_CURL_DIR)/include
+ifneq ($(wildcard $(DRM_CURL_DIR)/lib/libcurl.a),)
+DRM_OPENSSL_LIB_DIR := $(ROOT_DIR)/ut-core/framework/ut-control/build/$(TARGET)/openssl/lib
+ifeq ($(words $(wildcard $(DRM_OPENSSL_LIB_DIR)/libssl.a $(DRM_OPENSSL_LIB_DIR)/libcrypto.a)),2)
+DRM_OPENSSL_LIBS := $(DRM_OPENSSL_LIB_DIR)/libssl.a $(DRM_OPENSSL_LIB_DIR)/libcrypto.a
+else
+DRM_OPENSSL_LIBS := -lssl -lcrypto
+endif
+DRM_CURL_LIBS ?= $(DRM_CURL_DIR)/lib/libcurl.a $(DRM_OPENSSL_LIBS) -ldl -lpthread
+else
+DRM_CURL_LIBS ?= -lcurl
+endif
+XLDFLAGS += $(DRM_CURL_LIBS)
+endif
+
 
 # Graphics libraries
 INC_DIRS += $(ROOT_DIR)/build/usr/include/EGL/

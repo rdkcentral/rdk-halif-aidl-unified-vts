@@ -11,6 +11,9 @@
            path="vts_hal_test_components/avbuffer"
 	   revision="refs/tags/0.5.5" />
 
+  <project name="rdk-halif-aidl-test-drm"
+           path="vts_hal_test_components/drm" />
+
   <project name="rdk-halif-aidl-test-audiodecoder"
            path="vts_hal_test_components/audiodecoder"
 	   revision="refs/tags/0.7.3" />

@@ -71,6 +71,9 @@
 #include "vts_videosink_init.h"
 #include "vts_videodecoder_init.h"
 #include "vts_avclock_init.h"
+#ifdef ENABLE_DRM_TEST
+#include "vts_drm_init.h"
+#endif
 #ifdef ENABLE_PLANE_CONTROL_TEST
 #include "vts_planecontrol_init.h"
 #endif
@@ -106,6 +109,9 @@ int main(int argc, char **argv)
     UT_LOG("\t VTS UNIFIED Video Decoder HALIF Test Version: \033[0;32m%s\033[0m",VIDEODECODER_VERSION);
     UT_LOG("\t VTS UNIFIED Video Sink HALIF Test Version: \033[0;32m%s\033[0m",VIDEOSINK_VERSION);
     UT_LOG("\t VTS UNIFIED AVBuffer HALIF Test Version: \033[0;32m%s\033[0m",AVBUFFER_VERSION);
+#ifdef ENABLE_DRM_TEST
+    UT_LOG("\t VTS UNIFIED DRM HALIF Test Version: \033[0;32m%s\033[0m",DRM_VERSION);
+#endif
     UT_LOG("\t VTS UNIFIED AV Clock HALIF Test Version: \033[0;32m%s\033[0m",AVCLOCK_VERSION);
     UT_LOG("\t VTS UNIFIED Plane Control HALIF Test Version: \033[0;32m%s\033[0m",PLANECONTROL_VERSION);
     UT_LOG("\t VTS UNIFIED HALIF L4 Test Version: \033[0;32m%s\033[0m",L4_TESTS_VERSION);
@@ -128,6 +134,15 @@ int main(int argc, char **argv)
         UT_LOG_ERROR("Failed to initialize AVBuffer");
         result = UT_STATUS_FAILURE;
     }
+
+#ifdef ENABLE_DRM_TEST
+    result = VTS_Drm_init();
+    if(result != UT_STATUS_OK)
+    {
+        UT_LOG_ERROR("Failed to initialize DRM");
+        result = UT_STATUS_FAILURE;
+    }
+#endif
 
     result = VTS_AudioDecoder_init();
     if(result != UT_STATUS_OK)
@@ -292,6 +307,9 @@ int main(int argc, char **argv)
     VTS_MOTIONSENSOR_destroy();
     VTS_INDICATOR_destroy();
     VTS_COMPOSITEINPUT_destroy();
+#ifdef ENABLE_DRM_TEST
+    VTS_Drm_destroy();
+#endif
 
     return result;
 }

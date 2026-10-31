@@ -35,7 +35,7 @@ RDK_HALIF_TEST_BASE_URL="https://github.com/rdkcentral/rdk-halif-aidl-test-"
 OUT_TAR_FILE=vts_unified.tar.gz
 
 declare -a HALIF_TEST_COMPONENTS=(
-  avbuffer audiodecoder audiosink videodecoder videosink avclock planecontrol
+  avbuffer drm audiodecoder audiosink videodecoder videosink avclock planecontrol
   hdmicec hdmiinput hdmioutput deepsleep compositeinput deviceinfo bootreason firmwareupdate indicator
   audiomixer thermalsensor motionsensor
 )
@@ -198,10 +198,17 @@ unified_manifest()
 (
     set -euo pipefail
 
-    # .repo/manifests is the same marker used below to confirm a sync actually completed
-    # (see the check after `repo sync`); a non-empty RDK_HAL_TEST_DIR alone doesn't prove
-    # that - a partially failed sync or a manually created directory would look identical.
-    if [ "${FORCE_REPO_SYNC:-0}" != "1" ] && [ -d .repo/manifests ] && [ -d "${RDK_HAL_TEST_DIR}" ] && [ -n "$(ls -A ${RDK_HAL_TEST_DIR} 2>/dev/null)" ]; then
+    # Check every expected checkout so adding a component to the manifest cannot be
+    # hidden by an existing, otherwise non-empty component directory.
+    local components_ready=1
+    for component in "${HALIF_TEST_COMPONENTS[@]}"; do
+        local component_dir="${RDK_HAL_TEST_DIR}/${component}"
+        if [ ! -d "${component_dir}" ] || [ -z "$(ls -A "${component_dir}" 2>/dev/null)" ]; then
+            components_ready=0
+            break
+        fi
+    done
+    if [ "${FORCE_REPO_SYNC:-0}" != "1" ] && [ -d .repo/manifests ] && [ "${components_ready}" = "1" ]; then
         echo "Manifest already synced, skipping repo sync"
         echo "  (set FORCE_REPO_SYNC=1 to re-sync, e.g. after switching branches or editing the manifest)"
         exit 0
