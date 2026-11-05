@@ -76,12 +76,19 @@ done
 echo "};" >> "$OUTPUT_CPP"
 echo "" >> "$OUTPUT_CPP"
 
-# Handle free functions like: IAVBufferHelper* getAVBufferHelperInstance();
-grep -E "^\s*[^/].*\*\s*get.*\(\)\s*;" "$HEADER_FILE" | grep -v 'virtual' | while read -r line; do
-    ret_type=$(echo "$line" | sed -E 's/\*.*//g' | xargs)
+# Handle factory functions that acquire or release helper instances.
+grep -E '^[[:space:]]*[^/].*[[:space:]]+(get|release)[[:alnum:]_]*[[:space:]]*\([^;]*\)[[:space:]]*;' "$HEADER_FILE" | grep -v 'virtual' | while read -r line; do
     func_name=$(echo "$line" | grep -oP '\w+(?=\s*\()')
-    echo "$ret_type* $func_name() {" >> "$OUTPUT_CPP"
-    echo "    return new $SKELETON_CLASS();" >> "$OUTPUT_CPP"
+    ret_type=$(echo "$line" | sed -E "s/[[:space:]]*$func_name[[:space:]]*\\(.*//" | xargs)
+    args=$(echo "$line" | grep -oP '\(.*\)')
+
+    echo "$ret_type $func_name$args {" >> "$OUTPUT_CPP"
+    if [[ "$func_name" == get* ]]; then
+        echo "    return new $SKELETON_CLASS();" >> "$OUTPUT_CPP"
+    elif [[ "$func_name" == release* ]]; then
+        arg_name=$(echo "$args" | sed -E 's/^\(//; s/\)$//; s/.*[*&[:space:]]([[:alnum:]_]+)[[:space:]]*$/\1/')
+        echo "    delete static_cast<$SKELETON_CLASS*>($arg_name);" >> "$OUTPUT_CPP"
+    fi
     echo "}" >> "$OUTPUT_CPP"
     echo "" >> "$OUTPUT_CPP"
 done
