@@ -85,6 +85,13 @@ const ut_control_keyStringMapping_t bool_mapTable[] =
     {NULL, -1}
 };
 
+const ut_control_keyStringMapping_t decoder_operationalMode_mapTable[] =
+{
+    {"TUNNELLED",     (int32_t) OperationalMode::TUNNELLED},
+    {"NON_TUNNELLED", (int32_t) OperationalMode::NON_TUNNELLED},
+    {NULL, -1}
+};
+
 void* vts_kvp_create_instance(char *fileName)
 {
     ut_kvp_instance_t* instance;
