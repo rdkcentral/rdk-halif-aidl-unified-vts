@@ -85,6 +85,7 @@ using namespace com::rdk::hal::audiodecoder;
 
 extern const ut_control_keyStringMapping_t statusException_mapTable[];
 extern const ut_control_keyStringMapping_t bool_mapTable[];
+extern const ut_control_keyStringMapping_t decoder_operationalMode_mapTable[];
 
 size_t vts_bytesPerSample(audiodecoder::PCMFormat format);
 //size_t vts_bytesPerPixel(PixelFormat format);
