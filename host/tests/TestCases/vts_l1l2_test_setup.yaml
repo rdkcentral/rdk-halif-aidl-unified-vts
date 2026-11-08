@@ -158,8 +158,8 @@ VTS:
         name: "VTS_L1_VideoDecoder"
         tests:
           - getVideoDecoderIds_pos
-          - getCurrentOperationalMode_pos
-          - getCurrentOperationalMode_neg
+          - getoperationalmode_pos
+          - getoperationalmode_neg
           - getVideoDecoder_pos
           - getVideoDecoder_neg
           - getCapabilities_pos
