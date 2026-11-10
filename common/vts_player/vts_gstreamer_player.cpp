@@ -271,6 +271,11 @@ void VTSGStreamerPlayer::close()
         gst_object_unref(playbin);
         playbin = nullptr;
     }
+    if (bus)
+    {
+        gst_object_unref(bus);
+        bus = nullptr;
+    }
 	curAudioDecodeBin = nullptr;
     curAudioTypefind = nullptr;
     curAudioParse = nullptr;
