@@ -432,6 +432,7 @@ VTS:
           - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_COLORIMETRY.es
           - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_CLL.es
           - Video_Decoder/AV1_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.ivf
+          - Video_Decoder/Ves_ColorChecker_300nits_1920x1080_23976_dvhestn_L0_1000.265
         tests:
           - VSink_Sequential_NonTunnel_NonSecure
           - VSink_Sequential_NonTunnel_NonSecure_EOS
