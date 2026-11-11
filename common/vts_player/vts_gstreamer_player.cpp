@@ -167,11 +167,16 @@ void VTSGStreamerPlayer::trickMode(float speed)
     {
         gint64 pos = 0;
         // Query current playback position
+	
+        UT_LOG_INFO("Before query position");
+
         if (!gst_element_query_position(playbin, GST_FORMAT_TIME, &pos)) {
             UT_LOG_ERROR("Failed to query current position, defaulting to 0\n");
             UT_ASSERT_TRUE(false);
             pos = 0;
         }
+
+	UT_LOG_INFO("Before seek speed=%f", speed);
 
         if (!gst_element_seek(playbin,
                               speed,
@@ -183,6 +188,8 @@ void VTSGStreamerPlayer::trickMode(float speed)
             UT_LOG_ERROR("Playing at %fx speed failed!\n", speed);
             UT_ASSERT_TRUE(false);
         }
+
+	UT_LOG_INFO("After seek speed");
     }
 }
 
