@@ -181,7 +181,7 @@ void VTSGStreamerPlayer::trickMode(float speed)
         if (!gst_element_seek(playbin,
                               speed,
                               GST_FORMAT_TIME,
-                              (GstSeekFlags)(GST_SEEK_FLAG_FLUSH | GST_SEEK_FLAG_ACCURATE),
+                              (GstSeekFlags)(GST_SEEK_FLAG_FLUSH),
                               GST_SEEK_TYPE_SET, pos, // start from current position
                               GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE))
         {
