@@ -312,15 +312,18 @@ VTS:
           - Video_Decoder/H264_HIGH_1280x720_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420.es
           - Video_Decoder/H264_HIGH_720x480_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420.es
           - Video_Decoder/H264_HIGH_1920x1080_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_734_GOP.es
+          - Video_Decoder/vts_h264_1080p_sdr_60.0f_BT709_yuv420p_12M_a0_v120_2sec.es
           - Video_Decoder/H265_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
           - Video_Decoder/VP9_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
           - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_MDI.es
           - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_COLORIMETRY.es
           - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_CLL.es
+          - Video_Decoder/vts_h265_1080p_sdr_60.0f_BT709_yuv420p_12M_a0_v120_2sec.es
           - Video_Decoder/AV1_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.ivf
           - Video_Decoder/H264_HIGH_RES_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_ABR.es
           - Video_Decoder/H265_HIGH_RES_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_ABR.es
           - Video_Decoder/VP9_HIGH_RES_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_ABR.es
+          - Video_Decoder/vts_vp9_1080p_sdr_60.0f_BT709_yuv420p_12M_a0_v120_2sec.ivf
         tests:
           - VDecode_Sequential_NonTunnel_NonSecure
           - VDecode_Sequential_NonTunnel_NonSecure_CODEC
@@ -481,22 +484,10 @@ VTS:
       5:
         name: "VTS_L3_AVClock"
         streams:
-          - Audio_Decoder/AAC_LC/Valid/tones_8k_2_64.aac
-          - Audio_Decoder/AAC_LC/Valid/tones_11.025k_2_64.aac
-          - Audio_Decoder/AAC_LC/Valid/tones_12k_2_64.aac
-          - Audio_Decoder/AAC_LC/Valid/tones_16k_2_64.aac
-          - Audio_Decoder/AAC_LC/Valid/tones_22.05k_2_96.aac
-          - Audio_Decoder/AAC_LC/Valid/tones_24k_2_96.aac
-          - Audio_Decoder/DOLBY_AC3/Valid/tones_32k_1_64.ac3
-          - Audio_Decoder/DOLBY_AC3/Valid/tones_32k_2_64.ac3
-          - Audio_Decoder/DOLBY_AC3/Valid/tones_44.1k_1_64.ac3
-          - Audio_Decoder/DOLBY_AC3/Valid/tones_44.1k_2_96.ac3
-          - Audio_Decoder/DOLBY_AC3/Valid/tones_48k_1_128.ac3
-          - Audio_Decoder/DOLBY_AC3/Valid/tones_48k_2_192.ac3
-          - Video_Decoder/H264_HIGH_1920x1080_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_734.es
-          - Video_Decoder/H265_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
-          - Video_Decoder/Ves_ColorChecker_300nits_1920x1080_23976_dvhestn_L0_1000.265
-          - Video_Decoder/VP9_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
+          - Audio_Decoder/AAC_LC/Valid/tones_48k_6_256_10sec.aac
+          - Audio_Decoder/DOLBY_AC3/Valid/tones_48k_6_512_11sec.ac3
+          - Video_Decoder/H264_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_8M_10SEC.es
+          - Video_Decoder/H265_MAIN_3840x2160_DR_HDR10_DR_BT2020_60p_PIXEL_FORMAT_YCBCR420_12M_10SEC.es
         tests:
           - seq_nontun_nonsec_AutoAudioOnly
           - seq_nontun_nonsec_AutoVideoOnly
