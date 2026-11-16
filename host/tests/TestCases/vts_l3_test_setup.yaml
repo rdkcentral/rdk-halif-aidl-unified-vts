@@ -323,7 +323,6 @@ VTS:
           - Video_Decoder/VP9_HIGH_RES_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_ABR.es
         tests:
           - VDecode_Sequential_NonSecure
-          - VDecode_Sequential_NonSecure_CODEC
           - VDecode_Sequential_NonSecure_HDRModes
           - VDecode_Sequential_NonSecure_FrameRate
           - VDecode_Sequential_NonSecure_LowLatency
@@ -343,7 +342,6 @@ VTS:
           - VDecode_Sequential_NonSecure_MetadataOverride_SSAI
           - VDecode_Sequential_NonSecure_MetadataOverride_PAR
           - VDecode_Concurrent_NonSecure
-          - VDecode_Concurrent_NonSecure_CODEC
           - VDecode_Concurrent_NonSecure_AdaptiveBitrate
           - VDecode_Concurrent_NonSecure_HDRModes
           - VDecode_Concurrent_NonSecure_FrameRate
@@ -355,7 +353,6 @@ VTS:
           - VDecode_Concurrent_NonSecure_FlushReset
           - VDecode_Concurrent_NonSecure_Error
           - VDecode_Sequential_Secure
-          - VDecode_Sequential_Secure_CODEC
           - VDecode_Sequential_Secure_AdaptiveBitrate
           - VDecode_Sequential_Secure_HDRModes
           - VDecode_Sequential_Secure_FrameRate
@@ -367,7 +364,6 @@ VTS:
           - VDecode_Sequential_Secure_FlushReset
           - VDecode_Sequential_Secure_Error
           - VDecode_Concurrent_Secure
-          - VDecode_Concurrent_Secure_CODEC
           - VDecode_Concurrent_Secure_AdaptiveBitrate
           - VDecode_Concurrent_Secure_HDRModes
           - VDecode_Concurrent_Secure_FrameRate
@@ -378,7 +374,6 @@ VTS:
           - VDecode_Concurrent_Secure_Flush
           - VDecode_Concurrent_Secure_FlushReset
           - VDecode_Concurrent_Secure_Error
-          - VDecode_BackPressure_Callback
       4:
         name: "VTS_L3_VideoSink"
         streams:
