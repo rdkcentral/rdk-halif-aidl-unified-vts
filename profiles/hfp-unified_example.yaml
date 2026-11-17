@@ -43,3 +43,4 @@ include_15: profiles/hfp-thermalsensor.yaml
 include_16: profiles/hfp-motionsensor.yaml
 include_17: profiles/hfp-compositeinput.yaml
 include_18: profiles/hfp-vts-deepsleep.yaml
+include_19: profiles/hfp-audiomixer.yaml
