@@ -28,7 +28,7 @@ BOLD='\033[1m'
 RESET='\033[0m'
 
 declare -r TOP=`dirname $(realpath $0)`
-UT_CORE_DEFAULT_VERSION="5.1.0"
+UT_CORE_DEFAULT_VERSION="5.2.0"
 export UT_CORE_VERSION="${UT_CORE_VERSION:-${UT_CORE_DEFAULT_VERSION}}"
 RDK_HALIF_AIDL_VERSION="${RDK_HALIF_AIDL_VERSION:-main}"
 RDK_HALIF_TEST_BASE_URL="https://github.com/rdkcentral/rdk-halif-aidl-test-"
@@ -856,8 +856,7 @@ install_test()
     hfp_count=$(ls "${PROFILES_DIR}"/hfp-*.yaml 2>/dev/null | wc -l)
     if [ "$hfp_count" -le 1 ]; then
         echo -e "${YELLOW}ERROR: Expected more than one HFP profile in ${PROFILES_DIR}${RESET}"
-        echo -e "${BOLD}${RED}Build terminated. Re-run after adding all DUT HFP profiles.${RESET}"
-        exit 1
+        echo -e "${BOLD}${RED}VTS tar created without all required HFP profiles. Re-run after adding all DUT HFP profiles.${RESET}"
     fi
 
     cp -r ${PROFILES_DIR} ${INSTALL_PATH}
