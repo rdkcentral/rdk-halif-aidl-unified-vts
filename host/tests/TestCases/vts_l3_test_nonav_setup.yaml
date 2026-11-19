@@ -28,13 +28,13 @@ nonAvL3Tests:
         - "VTS_FIRMWAREUPDATE_L3_TestAllImages"
         - "VTS_FIRMWAREUPDATE_L3_ValidateAllErrorCodes"
 
-    - module: "motionsensor"
+    - module: "sensor-motion"
       tests:
         - "VTS_MOTIONSENSOR_L3_MotionEventDetection"
         - "VTS_MOTIONSENSOR_L3_NoMotionEventDetection"
         - "VTS_MOTIONSENSOR_L3_ActiveWindowBehavior"
 
-    - module: "thermalsensor"
+    - module: "sensor-thermal"
       tests:
         - "VTS_THERMALSENSOR_L3_ThermalExceedRecoveryLifecycle"
         - "VTS_THERMALSENSOR_L3_CriticalShutdownWithSuppression"

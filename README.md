@@ -109,6 +109,10 @@ git clone https://github.com/rdkcentral/rdk-halif-aidl-unified-vts.git
 cd rdk-halif-aidl-unified-vts
 ```
 
+### Copy DUT HFPs
+
+Make sure you copy all the DUT HFPs to profiles folder
+
 ### Environment Variables
 
 #### For Linux (x86) target
