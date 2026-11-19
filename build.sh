@@ -37,7 +37,7 @@ OUT_TAR_FILE=vts_unified.tar.gz
 declare -a HALIF_TEST_COMPONENTS=(
   avbuffer audiodecoder audiosink videodecoder videosink avclock planecontrol
   hdmicec hdmiinput hdmioutput deepsleep compositeinput deviceinfo bootreason firmwareupdate indicator
-  audiomixer thermalsensor motionsensor
+  audiomixer sensor-thermal sensor-motion
 )
 
 # Define the directory where the repository will be cloned
@@ -850,6 +850,14 @@ install_test()
     # Remove gstreamer and egl libraries from the install path (not needed in final tar)
     rm -rf ${INSTALL_LIB_PATH}/libgst*  ${INSTALL_LIB_PATH}/libEGL* ${INSTALL_LIB_PATH}/libGL* ${INSTALL_LIB_PATH}/libMali* ${INSTALL_LIB_PATH}/libwayland* ${INSTALL_LIB_PATH}/libgbm* ${INSTALL_LIB_PATH}/libgio*
 
+    # Copy profiles directory to the install path, make sure profile dir already has all the necessary profile files for your DUT
+    hfp_count=$(ls "${PROFILES_DIR}"/hfp-*.yaml 2>/dev/null | wc -l)
+    if [ "$hfp_count" -le 1 ]; then
+        echo -e "${YELLOW}ERROR: Expected more than one HFP profile in ${PROFILES_DIR}${RESET}"
+        echo -e "${BOLD}${RED}Build terminated. Re-run after adding all DUT HFP profiles.${RESET}"
+        exit 1
+    fi
+
     cp -r ${PROFILES_DIR} ${INSTALL_PATH}
 
     for component in "${HALIF_TEST_COMPONENTS[@]}"; do
@@ -867,7 +875,15 @@ install_test()
             cp -rf ${RDK_HAL_TEST_DIR}/${component}/${component}_stream_configuration ${INSTALL_PATH}/
         fi
         if [ -d "${RDK_HAL_TEST_DIR}/${component}/profiles" ]; then
-            cp -rf ${RDK_HAL_TEST_DIR}/${component}/profiles ${INSTALL_PATH}/
+            # Copy the vts specific profile files to the install path's profiles directory
+            cp -rf ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-vts-*.yaml ${INSTALL_PATH}/profiles/ 2>/dev/null || true
+            # Remove the old component-specific profile and replace it with the one from PROFILES_DIR
+	        rm ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-${component}.yaml 2>/dev/null || true
+            cp ${PROFILES_DIR}/hfp-${component}.yaml ${RDK_HAL_TEST_DIR}/${component}/profiles/ 2>/dev/null || true
+            # Compare the new profile with the one in the component's profiles directory to ensure they match
+            if ! cmp -s ${PROFILES_DIR}/hfp-${component}.yaml ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-${component}.yaml; then
+                echo "ERROR: Profile mismatch for component ${component}"
+            fi
         fi
     done
     if [ -d "${L4_TEST_DIR}/av_test_configurations" ]; then
