@@ -65,6 +65,8 @@ VTS:
           - setProperty_neg
           - setAudioFormat_pos
           - setAudioFormat_neg
+          - getoperationalmode_pos
+          - getoperationalmode_neg
       1:
         name: "VTS_L2_AudioDecoder"
         tests:

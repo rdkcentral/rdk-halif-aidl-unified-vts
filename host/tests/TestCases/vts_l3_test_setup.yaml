@@ -85,71 +85,39 @@ VTS:
           - Audio_Decoder/OPUS/Valid/vts_opus_48k_2ch_128k.opus
           - Audio_Decoder/OPUS/Valid/vts_opus_48k_6ch_256k.opus
         tests:
-          - ADecode_Sequential_NonTunnel_NonSecure
-          - ADecode_Sequential_NonTunnel_NonSecure_Error
-          - ADecode_Sequential_NonTunnel_NonSecure_Trim
-          - ADecode_Sequential_NonTunnel_NonSecure_Discontinuity
-          - ADecode_Sequential_NonTunnel_NonSecure_EOS
-          - ADecode_Sequential_NonTunnel_NonSecure_Flush
-          - ADecode_Sequential_NonTunnel_NonSecure_FlushReset
-          - ADecode_Sequential_NonTunnel_NonSecure_StopStart
-          - ADecode_Sequential_NonTunnel_NonSecure_OnDecodeBufAvail
-          - ADecode_Sequential_NonTunnel_Secure
-          - ADecode_Sequential_NonTunnel_Secure_Error
-          - ADecode_Sequential_NonTunnel_Secure_Trim
-          - ADecode_Sequential_NonTunnel_Secure_Discontinuity
-          - ADecode_Sequential_NonTunnel_Secure_EOS
-          - ADecode_Sequential_NonTunnel_Secure_Flush
-          - ADecode_Sequential_NonTunnel_Secure_FlushReset
-          - ADecode_Sequential_NonTunnel_Secure_StopStart
-          - ADecode_Sequential_Tunnel_NonSecure
-          - ADecode_Sequential_Tunnel_NonSecure_Error
-          - ADecode_Sequential_Tunnel_NonSecure_Trim
-          - ADecode_Sequential_Tunnel_NonSecure_Discontinuity
-          - ADecode_Sequential_Tunnel_NonSecure_EOS
-          - ADecode_Sequential_Tunnel_NonSecure_Flush
-          - ADecode_Sequential_Tunnel_NonSecure_FlushReset
-          - ADecode_Sequential_Tunnel_NonSecure_StopStart
-          - ADecode_Sequential_Tunnel_Secure
-          - ADecode_Sequential_Tunnel_Secure_Error
-          - ADecode_Sequential_Tunnel_Secure_Trim
-          - ADecode_Sequential_Tunnel_Secure_Discontinuity
-          - ADecode_Sequential_Tunnel_Secure_EOS
-          - ADecode_Sequential_Tunnel_Secure_Flush
-          - ADecode_Sequential_Tunnel_Secure_FlushReset
-          - ADecode_Sequential_Tunnel_Secure_StopStart
-          - ADecode_Concurrent_NonTunnel_NonSecure
-          - ADecode_Concurrent_NonTunnel_NonSecure_Error
-          - ADecode_Concurrent_NonTunnel_NonSecure_Trim
-          - ADecode_Concurrent_NonTunnel_NonSecure_Discontinuity
-          - ADecode_Concurrent_NonTunnel_NonSecure_EOS
-          - ADecode_Concurrent_NonTunnel_NonSecure_Flush
-          - ADecode_Concurrent_NonTunnel_NonSecure_FlushReset
-          - ADecode_Concurrent_NonTunnel_NonSecure_StopStart
-          - ADecode_Concurrent_NonTunnel_Secure
-          - ADecode_Concurrent_NonTunnel_Secure_Error
-          - ADecode_Concurrent_NonTunnel_Secure_Trim
-          - ADecode_Concurrent_NonTunnel_Secure_Discontinuity
-          - ADecode_Concurrent_NonTunnel_Secure_EOS
-          - ADecode_Concurrent_NonTunnel_Secure_Flush
-          - ADecode_Concurrent_NonTunnel_Secure_FlushReset
-          - ADecode_Concurrent_NonTunnel_Secure_StopStart
-          - ADecode_Concurrent_Tunnel_NonSecure
-          - ADecode_Concurrent_Tunnel_NonSecure_Error
-          - ADecode_Concurrent_Tunnel_NonSecure_Trim
-          - ADecode_Concurrent_Tunnel_NonSecure_Discontinuity
-          - ADecode_Concurrent_Tunnel_NonSecure_EOS
-          - ADecode_Concurrent_Tunnel_NonSecure_Flush
-          - ADecode_Concurrent_Tunnel_NonSecure_FlushReset
-          - ADecode_Concurrent_Tunnel_NonSecure_StopStart
-          - ADecode_Concurrent_Tunnel_Secure
-          - ADecode_Concurrent_Tunnel_Secure_Error
-          - ADecode_Concurrent_Tunnel_Secure_Trim
-          - ADecode_Concurrent_Tunnel_Secure_Discontinuity
-          - ADecode_Concurrent_Tunnel_Secure_EOS
-          - ADecode_Concurrent_Tunnel_Secure_Flush
-          - ADecode_Concurrent_Tunnel_Secure_FlushReset
-          - ADecode_Concurrent_Tunnel_Secure_StopStart
+          - ADecode_Sequential_NonSecure
+          - ADecode_Sequential_NonSecure_Error
+          - ADecode_Sequential_NonSecure_Trim
+          - ADecode_Sequential_NonSecure_Discontinuity
+          - ADecode_Sequential_NonSecure_EOS
+          - ADecode_Sequential_NonSecure_Flush
+          - ADecode_Sequential_NonSecure_FlushReset
+          - ADecode_Sequential_NonSecure_StopStart
+          - ADecode_Sequential_NonSecure_OnDecodeBufAvail
+          - ADecode_Sequential_Secure
+          - ADecode_Sequential_Secure_Error
+          - ADecode_Sequential_Secure_Trim
+          - ADecode_Sequential_Secure_Discontinuity
+          - ADecode_Sequential_Secure_EOS
+          - ADecode_Sequential_Secure_Flush
+          - ADecode_Sequential_Secure_FlushReset
+          - ADecode_Sequential_Secure_StopStart
+          - ADecode_Concurrent_NonSecure
+          - ADecode_Concurrent_NonSecure_Error
+          - ADecode_Concurrent_NonSecure_Trim
+          - ADecode_Concurrent_NonSecure_Discontinuity
+          - ADecode_Concurrent_NonSecure_EOS
+          - ADecode_Concurrent_NonSecure_Flush
+          - ADecode_Concurrent_NonSecure_FlushReset
+          - ADecode_Concurrent_NonSecure_StopStart
+          - ADecode_Concurrent_Secure
+          - ADecode_Concurrent_Secure_Error
+          - ADecode_Concurrent_Secure_Trim
+          - ADecode_Concurrent_Secure_Discontinuity
+          - ADecode_Concurrent_Secure_EOS
+          - ADecode_Concurrent_Secure_Flush
+          - ADecode_Concurrent_Secure_FlushReset
+          - ADecode_Concurrent_Secure_StopStart
       1:
         name: "VTS_L3_AudioSink"
         streams:
@@ -195,38 +163,26 @@ VTS:
           - Audio_Decoder/DOLBY_AC3/Invalid/tones_48k_2_192_sync.ac3
           - Audio_Decoder/DOLBY_AC3/Invalid/tones_48k_2_192_zero.ac3
         tests:
-          - ASink_Sequential_NonTunnel_NonSecure
-          - ASink_Sequential_NonTunnel_NonSecure_Flush
-          - ASink_Sequential_NonTunnel_NonSecure_EOS
-          - ASink_Sequential_NonTunnel_NonSecure_Underflow
-          - ASink_Sequential_NonTunnel_Secure
-          - ASink_Sequential_NonTunnel_Secure_Flush
-          - ASink_Sequential_NonTunnel_Secure_EOS
-          - ASink_Sequential_NonTunnel_Secure_Underflow
-          - ASink_Sequential_Tunnel_NonSecure
-          - ASink_Sequential_Tunnel_NonSecure_Flush
-          - ASink_Sequential_Tunnel_NonSecure_EOS
-          - ASink_Sequential_Tunnel_NonSecure_Underflow
-          - ASink_Sequential_Tunnel_Secure
-          - ASink_Sequential_Tunnel_Secure_Flush
-          - ASink_Sequential_Tunnel_Secure_EOS
-          - ASink_Sequential_Tunnel_Secure_Underflow
-          - ASink_Concurrent_NonTunnel_NonSecure
-          - ASink_Concurrent_NonTunnel_NonSecure_Flush
-          - ASink_Concurrent_NonTunnel_NonSecure_EOS
-          - ASink_Concurrent_NonTunnel_NonSecure_Underflow
-          - ASink_Concurrent_NonTunnel_Secure
-          - ASink_Concurrent_NonTunnel_Secure_Flush
-          - ASink_Concurrent_NonTunnel_Secure_EOS
-          - ASink_Concurrent_NonTunnel_Secure_Underflow
-          - ASink_Concurrent_Tunnel_NonSecure
-          - ASink_Concurrent_Tunnel_NonSecure_Flush
-          - ASink_Concurrent_Tunnel_NonSecure_EOS
-          - ASink_Concurrent_Tunnel_NonSecure_Underflow
-          - ASink_Concurrent_Tunnel_Secure
-          - ASink_Concurrent_Tunnel_Secure_Flush
-          - ASink_Concurrent_Tunnel_Secure_EOS
-          - ASink_Concurrent_Tunnel_Secure_Underflow
+          - ASink_Sequential_NonSecure
+          - ASink_Sequential_NonSecure_Flush
+          - ASink_Sequential_NonSecure_EOS
+          - ASink_Sequential_NonSecure_Underflow
+          - ASink_Sequential_NonSecure_Backpressure
+          - ASink_Sequential_Secure
+          - ASink_Sequential_Secure_Flush
+          - ASink_Sequential_Secure_EOS
+          - ASink_Sequential_Secure_Underflow
+          - ASink_Sequential_Secure_Backpressure
+          - ASink_Concurrent_NonSecure
+          - ASink_Concurrent_NonSecure_Flush
+          - ASink_Concurrent_NonSecure_EOS
+          - ASink_Concurrent_NonSecure_Underflow
+          - ASink_Concurrent_NonSecure_Backpressure
+          - ASink_Concurrent_Secure
+          - ASink_Concurrent_Secure_Flush
+          - ASink_Concurrent_Secure_EOS
+          - ASink_Concurrent_Secure_Underflow
+          - ASink_Concurrent_Secure_Backpressure
 
       2:
         name: "VTS_L3_AVBuffer"
@@ -321,6 +277,9 @@ VTS:
           - Video_Decoder/H264_HIGH_RES_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_ABR.es
           - Video_Decoder/H265_HIGH_RES_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_ABR.es
           - Video_Decoder/VP9_HIGH_RES_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_ABR.es
+          - Video_Decoder/vts_h264_1080p_sdr_60.0f_BT709_yuv420p_12M_a0_v120_2sec.es
+          - Video_Decoder/vts_h265_1080p_sdr_60.0f_BT709_yuv420p_12M_a0_v120_2sec.es
+          - Video_Decoder/vts_vp9_1080p_sdr_60.0f_BT709_yuv420p_12M_a0_v120_2sec.ivf
         tests:
           - VDecode_Sequential_NonSecure
           - VDecode_Sequential_NonSecure_HDRModes
@@ -387,6 +346,10 @@ VTS:
           - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_COLORIMETRY.es
           - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_CLL.es
           - Video_Decoder/AV1_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.ivf
+          - Video_Decoder/Ves_ColorChecker_300nits_1920x1080_23976_dvhestn_L0_1000.265
+          - Video_Decoder/vts_h264_1080p_sdr_60.0f_BT709_yuv420p_12M_a0_v120_2sec.es
+          - Video_Decoder/vts_h265_1080p_sdr_60.0f_BT709_yuv420p_12M_a0_v120_2sec.es
+          - Video_Decoder/vts_vp9_1080p_sdr_60.0f_BT709_yuv420p_12M_a0_v120_2sec.ivf
         tests:
           - VSink_Sequential_NonSecure
           - VSink_Sequential_NonSecure_EOS
@@ -431,131 +394,76 @@ VTS:
           - Video_Decoder/H265_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
           - Video_Decoder/Ves_ColorChecker_300nits_1920x1080_23976_dvhestn_L0_1000.265
           - Video_Decoder/VP9_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_734.es
+          - Audio_Decoder/AAC_LC/Valid/tones_48k_6_256_10sec.aac
+          - Audio_Decoder/DOLBY_AC3/Valid/tones_48k_6_512_11sec.ac3
+          - Video_Decoder/H264_HIGH_1920x1080_DR_SDR_DR_BT709_30p_PIXEL_FORMAT_YCBCR420_8M_10SEC.es
+          - Video_Decoder/H265_MAIN_3840x2160_DR_HDR10_DR_BT2020_60p_PIXEL_FORMAT_YCBCR420_12M_10SEC.es
         tests:
-          - seq_nontun_nonsec_AutoAudioOnly
-          - seq_nontun_nonsec_AutoVideoOnly
-          - seq_nontun_nonsec_AudioMasterAudioOnly
-          - seq_nontun_nonsec_VideoMasterVideoOnly
-          - seq_nontun_nonsec_AudioMasterVideoOnly
-          - seq_nontun_nonsec_VideoMasterAudioOnly
-          - seq_nontun_nonsec_PCRMode
-          - seq_nontun_nonsec_AutoAudioBeforeVideo
-          - seq_nontun_nonsec_AutoVideoBeforeAudio
-          - seq_nontun_nonsec_AutoSetAudioPlayRateNormalSpeed
-          - seq_nontun_nonsec_AutoSetAudioPlayRatePause
-          - seq_nontun_nonsec_AutoSetAudioPlayRateFastForward
-          - seq_nontun_nonsec_AutoSetVideoPlayRateNormalSpeed
-          - seq_nontun_nonsec_AutoSetVideoPlayRatePause
-          - seq_nontun_nonsec_AutoSetVideoPlayRateFastForward
-          - seq_nontun_sec_AutoAudioOnly
-          - seq_nontun_sec_AutoVideoOnly
-          - seq_nontun_sec_AudioMasterAudioOnly
-          - seq_nontun_sec_VideoMasterVideoOnly
-          - seq_nontun_sec_AudioMasterVideoOnly
-          - seq_nontun_sec_VideoMasterAudioOnly
-          - seq_nontun_sec_PCRMode
-          - seq_nontun_sec_AutoAudioBeforeVideo
-          - seq_nontun_sec_AutoVideoBeforeAudio
-          - seq_nontun_sec_AutoSetAudioPlayRateNormalSpeed
-          - seq_nontun_sec_AutoSetAudioPlayRatePause
-          - seq_nontun_sec_AutoSetAudioPlayRateFastForward
-          - seq_nontun_sec_AutoSetVideoPlayRateNormalSpeed
-          - seq_nontun_sec_AutoSetVideoPlayRatePause
-          - seq_nontun_sec_AutoSetVideoPlayRateFastForward
-          - seq_tun_nonsec_AutoAudioOnly
-          - seq_tun_nonsec_AutoVideoOnly
-          - seq_tun_nonsec_AudioMasterAudioOnly
-          - seq_tun_nonsec_VideoMasterVideoOnly
-          - seq_tun_nonsec_AudioMasterVideoOnly
-          - seq_tun_nonsec_VideoMasterAudioOnly
-          - seq_tun_nonsec_PCRMode
-          - seq_tun_nonsec_AutoAudioBeforeVideo
-          - seq_tun_nonsec_AutoVideoBeforeAudio
-          - seq_tun_nonsec_AutoSetAudioPlayRateNormalSpeed
-          - seq_tun_nonsec_AutoSetAudioPlayRatePause
-          - seq_tun_nonsec_AutoSetAudioPlayRateFastForward
-          - seq_tun_nonsec_AutoSetVideoPlayRateNormalSpeed
-          - seq_tun_nonsec_AutoSetVideoPlayRatePause
-          - seq_tun_nonsec_AutoSetVideoPlayRateFastForward
-          - seq_tun_sec_AutoAudioOnly
-          - seq_tun_sec_AutoVideoOnly
-          - seq_tun_sec_AudioMasterAudioOnly
-          - seq_tun_sec_VideoMasterVideoOnly
-          - seq_tun_sec_AudioMasterVideoOnly
-          - seq_tun_sec_VideoMasterAudioOnly
-          - seq_tun_sec_PCRMode
-          - seq_tun_sec_AutoAudioBeforeVideo
-          - seq_tun_sec_AutoVideoBeforeAudio
-          - seq_tun_sec_AutoSetAudioPlayRateNormalSpeed
-          - seq_tun_sec_AutoSetAudioPlayRatePause
-          - seq_tun_sec_AutoSetAudioPlayRateFastForward
-          - seq_tun_sec_AutoSetVideoPlayRateNormalSpeed
-          - seq_tun_sec_AutoSetVideoPlayRatePause
-          - seq_tun_sec_AutoSetVideoPlayRateFastForward
-          - con_ntun_nonsec_AutoAudioOnly
-          - con_ntun_nonsec_AutoVideoOnly
-          - con_ntun_nonsec_AudioMasterAudioOnly
-          - con_ntun_nonsec_VideoMasterVideoOnly
-          - con_ntun_nonsec_AudioMasterVideoOnly
-          - con_ntun_nonsec_VideoMasterAudioOnly
-          - con_ntun_nonsec_PCRMode
-          - con_ntun_nonsec_AutoAudioBeforeVideo
-          - con_ntun_nonsec_AutoVideoBeforeAudio
-          - con_ntun_nonsec_AutoSetAudioPlayRateNormalSpeed
-          - con_ntun_nonsec_AutoSetAudioPlayRatePause
-          - con_ntun_nonsec_AutoSetAudioPlayRateFastForward
-          - con_ntun_nonsec_AutoSetVideoPlayRateNormalSpeed
-          - con_ntun_nonsec_AutoSetVideoPlayRatePause
-          - con_ntun_nonsec_AutoSetVideoPlayRateFastForward
-          - con_ntun_sec_AutoAudioOnly
-          - con_ntun_sec_AutoVideoOnly
-          - con_ntun_sec_AudioMasterAudioOnly
-          - con_ntun_sec_VideoMasterVideoOnly
-          - con_ntun_sec_AudioMasterVideoOnly
-          - con_ntun_sec_VideoMasterAudioOnly
-          - con_ntun_sec_PCRMode
-          - con_ntun_sec_AutoAudioBeforeVideo
-          - con_ntun_sec_AutoVideoBeforeAudio
-          - con_ntun_sec_AutoSetAudioPlayRateNormalSpeed
-          - con_ntun_sec_AutoSetAudioPlayRatePause
-          - con_ntun_sec_AutoSetAudioPlayRateFastForward
-          - con_ntun_sec_AutoSetVideoPlayRateNormalSpeed
-          - con_ntun_sec_AutoSetVideoPlayRatePause
-          - con_ntun_sec_AutoSetVideoPlayRateFastForward
-          - con_tun_nonsec_AutoAudioOnly
-          - con_tun_nonsec_AutoVideoOnly
-          - con_tun_nonsec_AudioMasterAudioOnly
-          - con_tun_nonsec_VideoMasterVideoOnly
-          - con_tun_nonsec_AudioMasterVideoOnly
-          - con_tun_nonsec_VideoMasterAudioOnly
-          - con_tun_nonsec_PCRMode
-          - con_tun_nonsec_AutoAudioBeforeVideo
-          - con_tun_nonsec_AutoVideoBeforeAudio
-          - con_tun_nonsec_AutoSetAudioPlayRateNormalSpeed
-          - con_tun_nonsec_AutoSetAudioPlayRatePause
-          - con_tun_nonsec_AutoSetAudioPlayRateFastForward
-          - con_tun_nonsec_AutoSetVideoPlayRateNormalSpeed
-          - con_tun_nonsec_AutoSetVideoPlayRatePause
-          - con_tun_nonsec_AutoSetVideoPlayRateFastForward
-          - con_tun_sec_AutoAudioOnly
-          - con_tun_sec_AutoVideoOnly
-          - con_tun_sec_AudioMasterAudioOnly
-          - con_tun_sec_VideoMasterVideoOnly
-          - con_tun_sec_AudioMasterVideoOnly
-          - con_tun_sec_VideoMasterAudioOnly
-          - con_tun_sec_PCRMode
-          - con_tun_sec_AutoAudioBeforeVideo
-          - con_tun_sec_AutoVideoBeforeAudio
-          - con_tun_sec_AutoSetAudioPlayRateNormalSpeed
-          - con_tun_sec_AutoSetAudioPlayRatePause
-          - con_tun_sec_AutoSetAudioPlayRateFastForward
-          - con_tun_sec_AutoSetVideoPlayRateNormalSpeed
-          - con_tun_sec_AutoSetVideoPlayRatePause
-          - con_tun_sec_AutoSetVideoPlayRateFastForward
+          - seq_nonsec_AutoAudioOnly
+          - seq_nonsec_AutoVideoOnly
+          - seq_nonsec_AudioMasterAudioOnly
+          - seq_nonsec_VideoMasterVideoOnly
+          - seq_nonsec_AudioMasterVideoOnly
+          - seq_nonsec_VideoMasterAudioOnly
+          - seq_nonsec_PCRMode
+          - seq_nonsec_AutoAudioBeforeVideo
+          - seq_nonsec_AutoVideoBeforeAudio
+          - seq_nonsec_AutoSetAudioPlayRateNormalSpeed
+          - seq_nonsec_AutoSetAudioPlayRatePause
+          - seq_nonsec_AutoSetAudioPlayRateFastForward
+          - seq_nonsec_AutoSetVideoPlayRateNormalSpeed
+          - seq_nonsec_AutoSetVideoPlayRatePause
+          - seq_nonsec_AutoSetVideoPlayRateFastForward
+          - seq_sec_AutoAudioOnly
+          - seq_sec_AutoVideoOnly
+          - seq_sec_AudioMasterAudioOnly
+          - seq_sec_VideoMasterVideoOnly
+          - seq_sec_AudioMasterVideoOnly
+          - seq_sec_VideoMasterAudioOnly
+          - seq_sec_PCRMode
+          - seq_sec_AutoAudioBeforeVideo
+          - seq_sec_AutoVideoBeforeAudio
+          - seq_sec_AutoSetAudioPlayRateNormalSpeed
+          - seq_sec_AutoSetAudioPlayRatePause
+          - seq_sec_AutoSetAudioPlayRateFastForward
+          - seq_sec_AutoSetVideoPlayRateNormalSpeed
+          - seq_sec_AutoSetVideoPlayRatePause
+          - seq_sec_AutoSetVideoPlayRateFastForward
+          - con_nonsec_AutoAudioOnly
+          - con_nonsec_AutoVideoOnly
+          - con_nonsec_AudioMasterAudioOnly
+          - con_nonsec_VideoMasterVideoOnly
+          - con_nonsec_AudioMasterVideoOnly
+          - con_nonsec_VideoMasterAudioOnly
+          - con_nonsec_PCRMode
+          - con_nonsec_AutoAudioBeforeVideo
+          - con_nonsec_AutoVideoBeforeAudio
+          - con_nonsec_AutoSetAudioPlayRateNormalSpeed
+          - con_nonsec_AutoSetAudioPlayRatePause
+          - con_nonsec_AutoSetAudioPlayRateFastForward
+          - con_nonsec_AutoSetVideoPlayRateNormalSpeed
+          - con_nonsec_AutoSetVideoPlayRatePause
+          - con_nonsec_AutoSetVideoPlayRateFastForward
+          - con_sec_AutoAudioOnly
+          - con_sec_AutoVideoOnly
+          - con_sec_AudioMasterAudioOnly
+          - con_sec_VideoMasterVideoOnly
+          - con_sec_AudioMasterVideoOnly
+          - con_sec_VideoMasterAudioOnly
+          - con_sec_PCRMode
+          - con_sec_AutoAudioBeforeVideo
+          - con_sec_AutoVideoBeforeAudio
+          - con_sec_AutoSetAudioPlayRateNormalSpeed
+          - con_sec_AutoSetAudioPlayRatePause
+          - con_sec_AutoSetAudioPlayRateFastForward
+          - con_sec_AutoSetVideoPlayRateNormalSpeed
+          - con_sec_AutoSetVideoPlayRatePause
+          - con_sec_AutoSetVideoPlayRateFastForward
       6:
         name: "VTS_L3_PlaneControl"
         streams:
           - Video_Decoder/H264_HIGH_1920x1080_DR_SDR_DR_BT709_60p_PIXEL_FORMAT_YCBCR420_734_GOP.es
+          - Video_Decoder/H265_HIGH_1920x1080_DR_HDR10_BT2020_ST2084_30p_PIXEL_FORMAT_YCBCR420_CLL.es
         tests:
           - Planecontrol_Mapping
           - Planecontrol_Swapping
