@@ -126,7 +126,7 @@ echo -e "${GREEN}Git identity OK: ${GIT_USER} <${GIT_EMAIL}>${RESET}"
 # Suppress repo init color prompt by pre-configuring git color
 git config --global color.ui auto
 echo "Checking repo tool..."
-if command -v repo &>/dev/null; then
+if command -v repo >/dev/null; then
     echo -e "${GREEN}repo already installed at $(command -v repo)${RESET}"
 else
     echo "Installing repo tool..."
@@ -135,7 +135,7 @@ else
     chmod a+rx ~/.local/bin/repo
     export PATH="$HOME/.local/bin:$PATH"
 
-    if ! command -v repo &>/dev/null; then
+    if ! command -v repo >/dev/null; then
         echo -e "${BOLD}${RED}Error: 'repo' tool installation failed.${RESET}"
         #exit 1
     fi

@@ -209,8 +209,10 @@ unified_manifest()
 
     BRANCH=$(git rev-parse --abbrev-ref HEAD)
     if [ "${BRANCH}" = "HEAD" ]; then
-        echo "ERROR: Detached HEAD state detected — cannot determine branch for repo init."
-        exit 1
+        # Detached HEAD (CI checkouts, e.g. Coverity): there is no branch name, so init the manifest
+        # at the checked-out commit itself (repo accepts a commit as the manifest revision)
+        BRANCH=$(git rev-parse HEAD)
+        echo "Detached HEAD: using manifest revision ${BRANCH}"
     fi
 
     echo "repo init unified manifest"
