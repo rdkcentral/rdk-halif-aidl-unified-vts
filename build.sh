@@ -238,6 +238,10 @@ unified_manifest()
         echo "ERROR: Failed to scan aidl_unified_manifest.xml for insecure repo URLs."
         exit 1
     fi
+
+    # echo ls of vts_hal_test_components
+    echo "Contents of ${RDK_HAL_TEST_DIR}:"
+    ls -l "${RDK_HAL_TEST_DIR}"
 )
 
 ###############################################################################
