@@ -237,6 +237,19 @@ unified_manifest()
 
     repo sync -cd -j 16 -q --force-broken
 
+    # --force-broken keeps going when a repo fails to sync, so fail here if any required module is
+    # missing; audiomixer is required only when enabled.
+    # TODO: remove --force-broken and this check later.
+    for component in "${HALIF_TEST_COMPONENTS[@]}"; do
+        if [ "${component}" = "audiomixer" ] && [ "${ENABLE_AUDIO_MIXER_TEST:-0}" != "1" ]; then
+            continue
+        fi
+        if [ ! -d "${RDK_HAL_TEST_DIR}/${component}" ]; then
+            echo "ERROR: ${component} was not synced (${RDK_HAL_TEST_DIR}/${component} missing)."
+            exit 1
+        fi
+    done
+
     if [ ! -d .repo/manifests ]; then
         echo "ERROR: Expected .repo/manifests to exist after repo sync, but it was not found."
         exit 1
