@@ -81,7 +81,7 @@
 
    <project name="rdk-halif-aidl-test-thermal-sensor"
            path="vts_hal_test_components/sensor-thermal"
-           revision="feature/gh36_build_changes_23.0" />
+           revision="develop" />
 
    <project name="rdk-halif-aidl-test-audiomixer"
            path="vts_hal_test_components/audiomixer"
