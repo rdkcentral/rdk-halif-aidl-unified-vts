@@ -219,7 +219,9 @@ unified_manifest()
     if [ "${BRANCH}" = "HEAD" ]; then
         # Detached HEAD (CI checkouts, e.g. Coverity): there is no branch name, so init the manifest
         # at the checked-out commit itself (repo accepts a commit as the manifest revision)
-        BRANCH=$(git rev-parse HEAD)
+        # PR builds check out refs/pull/N/merge, a commit that doesn't exist on the remote, so
+        # prefer the PR source branch name (GITHUB_HEAD_REF) over the commit SHA
+        BRANCH="${GITHUB_HEAD_REF:-$(git rev-parse HEAD)}"
         echo "Detached HEAD: using manifest revision ${BRANCH}"
     fi
 
