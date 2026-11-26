@@ -39,7 +39,7 @@ include_11: profiles/hfp-deviceinfo.yaml
 include_12: profiles/hfp-bootreason.yaml
 include_13: profiles/hfp-firmwareupdate.yaml
 include_14: profiles/hfp-indicator.yaml
-include_15: profiles/hfp-thermalsensor.yaml
-include_16: profiles/hfp-motionsensor.yaml
+include_15: profiles/hfp-sensor-thermal.yaml
+include_16: profiles/hfp-sensor-motion.yaml
 include_17: profiles/hfp-compositeinput.yaml
 include_18: profiles/hfp-vts-deepsleep.yaml

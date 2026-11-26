@@ -35,7 +35,7 @@ import yaml
 
 
 SOURCE_FILE_MAP = {
-    "motionsensor": [
+    "sensor-motion": [
         os.path.join(
             "sensor",
             "{version}",
@@ -47,7 +47,7 @@ SOURCE_FILE_MAP = {
             "hfp-sensor-motion.yaml",
         )
     ],
-    "thermalsensor": [
+    "sensor-thermal": [
         os.path.join(
             "sensor",
             "{version}",

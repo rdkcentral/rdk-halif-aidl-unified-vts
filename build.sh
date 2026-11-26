@@ -28,7 +28,7 @@ BOLD='\033[1m'
 RESET='\033[0m'
 
 declare -r TOP=`dirname $(realpath $0)`
-UT_CORE_DEFAULT_VERSION="5.1.0"
+UT_CORE_DEFAULT_VERSION="5.2.0"
 export UT_CORE_VERSION="${UT_CORE_VERSION:-${UT_CORE_DEFAULT_VERSION}}"
 RDK_HALIF_AIDL_VERSION="${RDK_HALIF_AIDL_VERSION:-main}"
 RDK_HALIF_TEST_BASE_URL="https://github.com/rdkcentral/rdk-halif-aidl-test-"
@@ -37,7 +37,7 @@ OUT_TAR_FILE=vts_unified.tar.gz
 declare -a HALIF_TEST_COMPONENTS=(
   avbuffer audiodecoder audiosink videodecoder videosink avclock planecontrol
   hdmicec hdmiinput hdmioutput deepsleep compositeinput deviceinfo bootreason firmwareupdate indicator
-  audiomixer thermalsensor motionsensor
+  sensor-thermal sensor-motion audiomixer
 )
 
 # Define the directory where the repository will be cloned
@@ -207,11 +207,21 @@ unified_manifest()
         exit 0
     fi
 
-    BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    # CI containers run as a different user than the checkout owner; without this git fails with
+    # "dubious ownership", BRANCH ends up empty and repo init silently falls back to the main manifest
+    git config --global --add safe.directory "$(pwd)" || true
+
+    BRANCH=$(git rev-parse --abbrev-ref HEAD) || BRANCH=""
+    if [ -z "${BRANCH}" ]; then
+        echo "ERROR: could not determine the current git branch; refusing to sync the default manifest."
+        exit 1
+    fi
     if [ "${BRANCH}" = "HEAD" ]; then
         # Detached HEAD (CI checkouts, e.g. Coverity): there is no branch name, so init the manifest
         # at the checked-out commit itself (repo accepts a commit as the manifest revision)
-        BRANCH=$(git rev-parse HEAD)
+        # PR builds check out refs/pull/N/merge, a commit that doesn't exist on the remote, so
+        # prefer the PR source branch name (GITHUB_HEAD_REF) over the commit SHA
+        BRANCH="${GITHUB_HEAD_REF:-$(git rev-parse HEAD)}"
         echo "Detached HEAD: using manifest revision ${BRANCH}"
     fi
 
@@ -225,7 +235,20 @@ unified_manifest()
         -u https://github.com/rdkcentral/rdk-halif-aidl-unified-vts.git \
         -q
 
-    repo sync -cd -j 16 -q
+    repo sync -cd -j 16 -q --force-broken
+
+    # --force-broken keeps going when a repo fails to sync, so fail here if any required module is
+    # missing; audiomixer is required only when enabled.
+    # TODO: remove --force-broken and this check later.
+    for component in "${HALIF_TEST_COMPONENTS[@]}"; do
+        if [ "${component}" = "audiomixer" ] && [ "${ENABLE_AUDIO_MIXER_TEST:-0}" != "1" ]; then
+            continue
+        fi
+        if [ ! -d "${RDK_HAL_TEST_DIR}/${component}" ]; then
+            echo "ERROR: ${component} was not synced (${RDK_HAL_TEST_DIR}/${component} missing)."
+            exit 1
+        fi
+    done
 
     if [ ! -d .repo/manifests ]; then
         echo "ERROR: Expected .repo/manifests to exist after repo sync, but it was not found."
@@ -238,6 +261,10 @@ unified_manifest()
         echo "ERROR: Failed to scan aidl_unified_manifest.xml for insecure repo URLs."
         exit 1
     fi
+
+    # echo ls of vts_hal_test_components
+    echo "Contents of ${RDK_HAL_TEST_DIR}:"
+    ls -l "${RDK_HAL_TEST_DIR}"
 )
 
 ###############################################################################
@@ -852,6 +879,13 @@ install_test()
     # Remove gstreamer and egl libraries from the install path (not needed in final tar)
     rm -rf ${INSTALL_LIB_PATH}/libgst*  ${INSTALL_LIB_PATH}/libEGL* ${INSTALL_LIB_PATH}/libGL* ${INSTALL_LIB_PATH}/libMali* ${INSTALL_LIB_PATH}/libwayland* ${INSTALL_LIB_PATH}/libgbm* ${INSTALL_LIB_PATH}/libgio*
 
+    # Copy profiles directory to the install path, make sure profile dir already has all the necessary profile files for your DUT
+    hfp_count=$(ls "${PROFILES_DIR}"/hfp-*.yaml 2>/dev/null | wc -l)
+    if [ "$hfp_count" -le 1 ]; then
+        echo -e "${YELLOW}ERROR: Expected more than one HFP profile in ${PROFILES_DIR}${RESET}"
+        echo -e "${BOLD}${RED}VTS tar created without all required HFP profiles. Re-run after adding all DUT HFP profiles.${RESET}"
+    fi
+
     cp -r ${PROFILES_DIR} ${INSTALL_PATH}
 
     for component in "${HALIF_TEST_COMPONENTS[@]}"; do
@@ -869,7 +903,15 @@ install_test()
             cp -rf ${RDK_HAL_TEST_DIR}/${component}/${component}_stream_configuration ${INSTALL_PATH}/
         fi
         if [ -d "${RDK_HAL_TEST_DIR}/${component}/profiles" ]; then
-            cp -rf ${RDK_HAL_TEST_DIR}/${component}/profiles ${INSTALL_PATH}/
+            # Copy the vts specific profile files to the install path's profiles directory
+            cp -rf ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-vts-*.yaml ${INSTALL_PATH}/profiles/ 2>/dev/null || true
+            # Remove the old component-specific profile and replace it with the one from PROFILES_DIR
+	    rm ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-${component}.yaml 2>/dev/null || true
+            cp ${PROFILES_DIR}/hfp-${component}.yaml ${RDK_HAL_TEST_DIR}/${component}/profiles/ 2>/dev/null || true
+            # Compare the new profile with the one in the component's profiles directory to ensure they match
+            if ! cmp -s ${PROFILES_DIR}/hfp-${component}.yaml ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-${component}.yaml; then
+                echo -e "${BOLD}${YELLOW}Warning: Profile mismatch for component ${component}${RESET}"
+            fi
         fi
     done
     if [ -d "${L4_TEST_DIR}/av_test_configurations" ]; then

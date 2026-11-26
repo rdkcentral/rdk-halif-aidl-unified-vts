@@ -65,6 +65,8 @@ VTS:
           - setProperty_neg
           - setAudioFormat_pos
           - setAudioFormat_neg
+          - getoperationalmode_pos
+          - getoperationalmode_neg
       1:
         name: "VTS_L2_AudioDecoder"
         tests:
@@ -153,11 +155,13 @@ VTS:
           - getAllocList_neg
           - calculateSHA1_pos
           - calculateSHA1_neg
+          - getReleaseAVBufferHelperInstance_pos
       5:
         name: "VTS_L1_VideoDecoder"
         tests:
           - getVideoDecoderIds_pos
-          - getSupportedOperationalModes_pos
+          - getoperationalmode_pos
+          - getoperationalmode_neg
           - getVideoDecoder_pos
           - getVideoDecoder_neg
           - getCapabilities_pos
