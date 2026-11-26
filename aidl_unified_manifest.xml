@@ -76,11 +76,11 @@
            revision="develop" />
 
    <project name="rdk-halif-aidl-test-motion-sensor"
-           path="vts_hal_test_components/motionsensor"
+           path="vts_hal_test_components/sensor-motion"
            revision="develop" />
 
    <project name="rdk-halif-aidl-test-thermal-sensor"
-           path="vts_hal_test_components/thermalsensor"
+           path="vts_hal_test_components/sensor-thermal"
            revision="develop" />
 
    <project name="rdk-halif-aidl-test-audiomixer"

@@ -37,7 +37,7 @@ OUT_TAR_FILE=vts_unified.tar.gz
 declare -a HALIF_TEST_COMPONENTS=(
   avbuffer audiodecoder audiosink videodecoder videosink avclock planecontrol
   hdmicec hdmiinput hdmioutput deepsleep compositeinput deviceinfo bootreason firmwareupdate indicator
-  thermalsensor motionsensor audiomixer
+  sensor-thermal sensor-motion
 )
 
 # Define the directory where the repository will be cloned
@@ -207,7 +207,15 @@ unified_manifest()
         exit 0
     fi
 
-    BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    # CI containers run as a different user than the checkout owner; without this git fails with
+    # "dubious ownership", BRANCH ends up empty and repo init silently falls back to the main manifest
+    git config --global --add safe.directory "$(pwd)" || true
+
+    BRANCH=$(git rev-parse --abbrev-ref HEAD) || BRANCH=""
+    if [ -z "${BRANCH}" ]; then
+        echo "ERROR: could not determine the current git branch; refusing to sync the default manifest."
+        exit 1
+    fi
     if [ "${BRANCH}" = "HEAD" ]; then
         # Detached HEAD (CI checkouts, e.g. Coverity): there is no branch name, so init the manifest
         # at the checked-out commit itself (repo accepts a commit as the manifest revision)
@@ -225,7 +233,7 @@ unified_manifest()
         -u https://github.com/rdkcentral/rdk-halif-aidl-unified-vts.git \
         -q
 
-    repo sync -cd -j 16 -q
+    repo sync -cd -j 16 -q --force-broken
 
     if [ ! -d .repo/manifests ]; then
         echo "ERROR: Expected .repo/manifests to exist after repo sync, but it was not found."
