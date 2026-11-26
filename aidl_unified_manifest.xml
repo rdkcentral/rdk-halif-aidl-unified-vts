@@ -35,10 +35,6 @@
            path="vts_hal_test_components/planecontrol"
 	   revision="feature/73-feature-upgrade-to-0230" />
 
-   <project name="rdk-halif-aidl-test-audiomixer"
-           path="vts_hal_test_components/audiomixer"
-           revision="feature/13-feature-enhance-l3-testcases" />
-
    <project name="rdk-halif-aidl-L4-Vendor"
            path="vts_hal_test_components/l4_tests"
            revision="refs/tags/0.3.1" />
@@ -86,5 +82,9 @@
    <project name="rdk-halif-aidl-test-thermal-sensor"
            path="vts_hal_test_components/sensor-thermal"
            revision="feature/gh36_build_changes_23.0" />
+
+   <project name="rdk-halif-aidl-test-audiomixer"
+           path="vts_hal_test_components/audiomixer"
+           revision="feature/13-feature-enhance-l3-testcases" />
 
 </manifest>
