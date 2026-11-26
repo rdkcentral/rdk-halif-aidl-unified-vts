@@ -879,11 +879,11 @@ install_test()
             # Copy the vts specific profile files to the install path's profiles directory
             cp -rf ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-vts-*.yaml ${INSTALL_PATH}/profiles/ 2>/dev/null || true
             # Remove the old component-specific profile and replace it with the one from PROFILES_DIR
-	        rm ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-${component}.yaml 2>/dev/null || true
+	    rm ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-${component}.yaml 2>/dev/null || true
             cp ${PROFILES_DIR}/hfp-${component}.yaml ${RDK_HAL_TEST_DIR}/${component}/profiles/ 2>/dev/null || true
             # Compare the new profile with the one in the component's profiles directory to ensure they match
             if ! cmp -s ${PROFILES_DIR}/hfp-${component}.yaml ${RDK_HAL_TEST_DIR}/${component}/profiles/hfp-${component}.yaml; then
-                echo "ERROR: Profile mismatch for component ${component}"
+                echo -e "${BOLD}${YELLOW}Warning: Profile mismatch for component ${component}${RESET}"
             fi
         fi
     done
