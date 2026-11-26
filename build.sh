@@ -37,7 +37,7 @@ OUT_TAR_FILE=vts_unified.tar.gz
 declare -a HALIF_TEST_COMPONENTS=(
   avbuffer audiodecoder audiosink videodecoder videosink avclock planecontrol
   hdmicec hdmiinput hdmioutput deepsleep compositeinput deviceinfo bootreason firmwareupdate indicator
-  audiomixer sensor-thermal sensor-motion
+  sensor-thermal sensor-motion audiomixer
 )
 
 # Define the directory where the repository will be cloned
