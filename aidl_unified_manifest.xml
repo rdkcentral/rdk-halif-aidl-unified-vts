@@ -3,41 +3,41 @@
   <remote name="rdkcentral"
           fetch="https://github.com/rdkcentral" />
 
-  <default revision="main"
+  <default revision="develop"
            remote="rdkcentral"
            sync-j="4" />
 
   <project name="rdk-halif-aidl-test-avbuffer"
            path="vts_hal_test_components/avbuffer"
-	   revision="feature/102-feature-upgrade-to-0230" />
+	   revision="develop" />
 
   <project name="rdk-halif-aidl-test-audiodecoder"
            path="vts_hal_test_components/audiodecoder"
-           revision="feature/gh146_AudioDecoder0230" />
+           revision="develop" />
 
   <project name="rdk-halif-aidl-test-videodecoder"
            path="vts_hal_test_components/videodecoder"
-           revision="feature/gh177_VideoDecoder0230" />
+           revision="develop" />
 
   <project name="rdk-halif-aidl-test-audiosink"
            path="vts_hal_test_components/audiosink"
-           revision="feature/gh121_AudioSink0230" />
+           revision="develop" />
 
   <project name="rdk-halif-aidl-test-videosink"
            path="vts_hal_test_components/videosink"
-           revision="feature/gh120_VideoSink0230" />
+           revision="develop" />
 
    <project name="rdk-halif-aidl-test-avclock"
            path="vts_hal_test_components/avclock"
-           revision="feature/135-feature-upgrade-to-0230" />
+           revision="develop" />
 
    <project name="rdk-halif-aidl-test-planecontrol"
            path="vts_hal_test_components/planecontrol"
-	   revision="feature/73-feature-upgrade-to-0230" />
+	   revision="develop" />
 
    <project name="rdk-halif-aidl-L4-Vendor"
            path="vts_hal_test_components/l4_tests"
-           revision="refs/tags/0.3.1" />
+           revision="develop" />
 
    <project name="rdk-halif-aidl-test-cec"
            path="vts_hal_test_components/hdmicec"
@@ -49,7 +49,7 @@
 
    <project name="rdk-halif-aidl-test-hdmioutput"
            path="vts_hal_test_components/hdmioutput"
-           revision="feature/issue58_migratetoaidl_0_23_0" />
+           revision="develop" />
 
    <project name="rdk-halif-aidl-test-deepsleep"
            path="vts_hal_test_components/deepsleep"
@@ -85,6 +85,6 @@
 
    <project name="rdk-halif-aidl-test-audiomixer"
            path="vts_hal_test_components/audiomixer"
-           revision="feature/13-feature-enhance-l3-testcases" />
+           revision="develop" />
 
 </manifest>
