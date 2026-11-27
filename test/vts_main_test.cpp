@@ -78,7 +78,9 @@
 #include "vts_av_l4_init.h"
 #endif
 
+#ifdef ENABLE_AUDIO_MIXER_TEST
 #include "vts_audiomixer_init.h"
+#endif
 #include "vts_hdmicec_init.h"
 #include "vts_hdmiinput_init.h"
 #include "vts_hdmioutput_init.h"
@@ -182,12 +184,14 @@ int main(int argc, char **argv)
     }
 #endif
 
+#ifdef ENABLE_AUDIO_MIXER_TEST
     result = VTS_AudioMixer_init();
     if(result != UT_STATUS_OK)
     {
         UT_LOG_ERROR("Failed to initialize Audio Mixer");
         result = UT_STATUS_FAILURE;
     }
+#endif
 
     result = VTS_HDMICEC_init();
     if(result != UT_STATUS_OK)
@@ -280,7 +284,9 @@ int main(int argc, char **argv)
     VTS_VideoDecoder_destroy();
     VTS_AudioSink_destroy();
     VTS_VideoSink_destroy();
+#ifdef ENABLE_AUDIO_MIXER_TEST
     VTS_AudioMixer_destroy();
+#endif
     VTS_HDMICEC_destroy();
     VTS_HDMIINPUT_destroy();
     VTS_HDMIOUTPUT_destroy();

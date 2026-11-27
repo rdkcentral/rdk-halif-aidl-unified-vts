@@ -18,41 +18,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Configure git safe.directory
-        run: |
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git config --global --add safe.directory /__w/rdk-halif-aidl-unified-vts/rdk-halif-aidl-unified-vts
-
-      - name: Attach to a real branch
-        # actions/checkout leaves detached HEAD, which breaks build.sh's branch detection
-        run: git checkout -B "${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
-
-      - name: Configure GitHub auth for repo tool
-        env:
-          GITHUB_TOKEN: ${{ secrets.RDKCM_RDKE }}
-        run: |
-          # Make any https://github.com/* clone use token auth (non-interactive)
-          git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
-          git config --global credential.helper store
-
-      - name: Install repo tool
-        run: |
-          mkdir -p ~/.local/bin
-          curl -o ~/.local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo
-          chmod a+rx ~/.local/bin/repo
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-      - name: Configure Git credentials for repo tool
-        run: |
-          git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
-        env:
-          GITHUB_TOKEN: ${{ secrets.RDKCM_RDKE }}
-
       - name: native build
         run: |
-          git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
           sh -x build_dependencies.sh
           sh -x cov_build.sh
-        env:
-          GITHUB_TOKEN: ${{ secrets.RDKCM_RDKE }}
-          REPO_MANIFEST_URL: https://x-access-token:${GITHUB_TOKEN}@github.com/rdkcentral/rdk-halif-aidl-unified-vts.git

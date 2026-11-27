@@ -109,6 +109,10 @@ git clone https://github.com/rdkcentral/rdk-halif-aidl-unified-vts.git
 cd rdk-halif-aidl-unified-vts
 ```
 
+### Copy DUT HFPs
+
+Make sure you copy all the DUT HFPs to profiles folder
+
 ### Environment Variables
 
 #### For Linux (x86) target
@@ -148,6 +152,9 @@ export GST_LIB_PATH=/path/to/gstreamer_pkg
 # Enable Plane Control test cases (requires EGL)
 export ENABLE_PLANE_CONTROL_TEST=1
 export EGL_LIB_PATH=/path/to/egl_pkg
+
+# Enable Audio Mixer
+export ENABLE_AUDIO_MIXER_TEST=1
 ```
 
 By default, UT logs are set to WARNING level. For more details on log level filtering, refer to [UT-Core Log Level Documentation](https://github.com/rdkcentral/ut-control/blob/2.1.0/README.md#log-level-filtering)

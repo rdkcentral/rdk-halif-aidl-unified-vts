@@ -41,8 +41,8 @@ BOOT_TEST_DIR := $(VTS_TEST_DIR)/bootreason
 FLASH_TEST_DIR := $(VTS_TEST_DIR)/firmwareupdate
 INDICATOR_TEST_DIR := $(VTS_TEST_DIR)/indicator
 AUDIOMIXER_TEST_DIR := $(VTS_TEST_DIR)/audiomixer
-THERMALSENSOR_TEST_DIR := $(VTS_TEST_DIR)/thermalsensor
-MOTIONSENSOR_TEST_DIR := $(VTS_TEST_DIR)/motionsensor
+THERMALSENSOR_TEST_DIR := $(VTS_TEST_DIR)/sensor-thermal
+MOTIONSENSOR_TEST_DIR := $(VTS_TEST_DIR)/sensor-motion
 COMPOSITEINPUT_TEST_DIR := $(VTS_TEST_DIR)/compositeinput
 
 COMMON_DIR := $(ROOT_DIR)/common
@@ -83,7 +83,7 @@ DEVICEINFO_VERSION := $(shell cd $(DEVICEINFO_TEST_DIR) && git describe --tags -
 BOOT_VERSION := $(shell cd $(BOOT_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 FLASH_VERSION := $(shell cd $(FLASH_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 INDICATOR_VERSION := $(shell cd $(INDICATOR_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
-AUDIOMIXER_VERSION := $(shell cd $(AUDIOMIXER_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
+AUDIOMIXER_VERSION := $(shell cd $(AUDIOMIXER_TEST_DIR) 2>/dev/null && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 THERMALSENSOR_VERSION := $(shell cd $(THERMALSENSOR_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 MOTIONSENSOR_VERSION := $(shell cd $(MOTIONSENSOR_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
 L4_TESTS_VERSION := $(shell cd $(L4_TEST_DIR) && git describe --tags --always 2>/dev/null || echo "$(VERSION)")
@@ -156,6 +156,10 @@ ifeq ($(ENABLE_AV_L4_TEST),1)
 CXXFLAGS += -DENABLE_AV_L4_TEST
 endif
 
+ifeq ($(ENABLE_AUDIO_MIXER_TEST),1)
+CXXFLAGS += -DENABLE_AUDIO_MIXER_TEST
+endif
+
 SRC_DIRS := $(AUDIO_DECODER_TEST_DIR)/src
 SRC_DIRS += $(AUDIO_SINK_TEST_DIR)/src
 SRC_DIRS += $(AV_BUFFER_TEST_DIR)/src
@@ -174,7 +178,9 @@ SRC_DIRS += $(DEVICEINFO_TEST_DIR)/src
 SRC_DIRS += $(BOOT_TEST_DIR)/src
 SRC_DIRS += $(FLASH_TEST_DIR)/src
 SRC_DIRS += $(INDICATOR_TEST_DIR)/src
+ifeq ($(ENABLE_AUDIO_MIXER_TEST),1)
 SRC_DIRS += $(AUDIOMIXER_TEST_DIR)/src
+endif
 SRC_DIRS += $(THERMALSENSOR_TEST_DIR)/src
 SRC_DIRS += $(MOTIONSENSOR_TEST_DIR)/src
 ifeq ($(ENABLE_AV_L4_TEST),1)
